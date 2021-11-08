@@ -5,6 +5,7 @@
  */
 package poker.UI.Framework;
 import java.util.ArrayList;
+import poker.UI.ViewEnum;
 
 /**
  *
@@ -12,19 +13,31 @@ import java.util.ArrayList;
  */
 public abstract class View extends javax.swing.JFrame implements Updatable {
     String myId;
+    ViewEnum myViewEnum;
     Controller myController;
+
+
     ArrayList<Updatable> myComponents = new ArrayList();
   
-    public View() {
+    public View(ViewEnum aViewEnum) {
         initComponents();
-        instanciateController();
+        myViewEnum = aViewEnum;
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
     
     // Each View derived class should implement their own instanciateController() method because 
-    // only they know what Controller derived class to implement
-    public abstract void instanciateController();
+    // only they know what Controller derived class to implement   
+    public abstract void instanciateController(ViewEnum aViewEnum);
     public void setController(Controller aController) {
         myController = aController;
+    }
+    public Controller getController() {
+        return myController;
+    }
+    
+    public void mySetTitle(String aTitle){
+        this.setTitle(aTitle);
     }
     
     public boolean UpdateComponent(String aComponentId, Model aModel){
@@ -94,7 +107,7 @@ public abstract class View extends javax.swing.JFrame implements Updatable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -31,5 +31,6 @@ public class Admin extends User {
         myId = aId;
         myPass = aPass;
         myFullName = aFullName;
+        myUserEnum = UserEnum.U_ADMIN;
     }
 }

@@ -5,6 +5,8 @@
  */
 package poker.Game;
 
+import poker.Localization.LanguageEnum;
+
 /**
  *
  * @author MDA 174321 :)
@@ -13,7 +15,7 @@ public class Configuration {
     int myMinPlayersPerGame;
     int myMaxPlayersPerGame;
     int myBlindBetValue;
-    
+   
     public boolean isValid(){
         if (myMinPlayersPerGame <= 0)
             return false;

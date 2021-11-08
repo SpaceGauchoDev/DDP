@@ -11,13 +11,13 @@ import poker.UI.Framework.Updatable;
  *
  * @author MDA 174321 :)
  */
-public class TextInputField extends javax.swing.JPanel implements Updatable {
+public class TextInputFieldComponent extends javax.swing.JPanel implements Updatable {
     private String myId;
     public String myLabel = "Label";
     public String myText = "Placeholder";
     public String myWarning = "";
     
-    public TextInputField() {
+    public TextInputFieldComponent() {
         initComponents();
         Update(null);
     }
@@ -27,6 +27,12 @@ public class TextInputField extends javax.swing.JPanel implements Updatable {
         myText = aText;
         myWarning = aWarning;
         Update(null);
+    }
+    
+    public TextInputFieldModel getModelData(){
+        return new TextInputFieldModel( inputLabel_label.getText(),
+                                        input_textField.getText(),
+                                        warning_label.getText());
     }
 
     /**
@@ -38,17 +44,22 @@ public class TextInputField extends javax.swing.JPanel implements Updatable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        inputLabel_label = new javax.swing.JLabel();
+        input_textField = new javax.swing.JTextField();
+        warning_label = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel1.setText("jLabel1");
+        inputLabel_label.setText("Text field label");
 
-        jTextField1.setText("jTextField1");
+        input_textField.setText("Text field");
+        input_textField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_textFieldActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("jLabel2");
+        warning_label.setText("Warning label");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,10 +69,10 @@ public class TextInputField extends javax.swing.JPanel implements Updatable {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(inputLabel_label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
+                        .addComponent(input_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(warning_label))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,26 +80,30 @@ public class TextInputField extends javax.swing.JPanel implements Updatable {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputLabel_label)
+                    .addComponent(input_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(warning_label)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void input_textFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_textFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_textFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel inputLabel_label;
+    private javax.swing.JTextField input_textField;
+    private javax.swing.JLabel warning_label;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void Update(Model aModel) {
-        jLabel1.setText(myLabel);
-        jTextField1.setText(myText);
-        jLabel2.setText(myWarning);
+        inputLabel_label.setText(myLabel);
+        input_textField.setText(myText);
+        warning_label.setText(myWarning);
     }
 
     @Override

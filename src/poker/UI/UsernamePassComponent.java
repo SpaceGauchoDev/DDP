@@ -20,8 +20,14 @@ public class UsernamePassComponent extends javax.swing.JPanel implements Updatab
 
     public UsernamePassComponent() {
         initComponents();
-        textInputField1.set("Username:", "", "");
-        textInputField2.set("Password:", "", "");
+        username_textInputField.set("Username:", "", "");
+        password_textInputField.set("Password:", "", "");
+    }
+    
+    public LoginModel getModelData(){
+        TextInputFieldModel usernameInput = username_textInputField.getModelData();
+        TextInputFieldModel passwordInput = password_textInputField.getModelData();
+        return new LoginModel(usernameInput.myInputFieldText,"", passwordInput.myInputFieldText, ""); 
     }
 
     /**
@@ -33,8 +39,8 @@ public class UsernamePassComponent extends javax.swing.JPanel implements Updatab
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textInputField1 = new poker.UI.TextInputField();
-        textInputField2 = new poker.UI.TextInputField();
+        username_textInputField = new poker.UI.TextInputFieldComponent();
+        password_textInputField = new poker.UI.TextInputFieldComponent();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -43,18 +49,18 @@ public class UsernamePassComponent extends javax.swing.JPanel implements Updatab
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textInputField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textInputField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(141, Short.MAX_VALUE))
+                    .addComponent(username_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textInputField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textInputField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addComponent(username_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(password_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -119,7 +125,7 @@ public class UsernamePassComponent extends javax.swing.JPanel implements Updatab
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private poker.UI.TextInputField textInputField1;
-    private poker.UI.TextInputField textInputField2;
+    private poker.UI.TextInputFieldComponent password_textInputField;
+    private poker.UI.TextInputFieldComponent username_textInputField;
     // End of variables declaration//GEN-END:variables
 }

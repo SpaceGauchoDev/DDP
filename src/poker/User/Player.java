@@ -36,5 +36,6 @@ public class Player extends User {
         myPass = aPass;
         myFullName = aFullName;
         myFunds = aFunds;
+        myUserEnum = UserEnum.U_PLAYER;
     }
 }

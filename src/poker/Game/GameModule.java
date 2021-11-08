@@ -13,9 +13,6 @@ public class GameModule {
     // 6 players per game and 10 funds per blind bet
     Configuration myConfiguration = new Configuration(1,6,10);
     
-    CardOrderEnum a = CardOrderEnum.O_10;
-    
-    int asas = a.getValue();
     
     public GameModule() {
         

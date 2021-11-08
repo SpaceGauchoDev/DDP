@@ -5,6 +5,8 @@
  */
 package poker;
 
+import poker.Display.ClientUI;
+import poker.Localization.LanguageEnum;
 import poker.User.UserModule;
 
 /**
@@ -14,12 +16,14 @@ import poker.User.UserModule;
 public class SeedData {
     public void seed(){
         Modules m = Modules.getInstancia();
+        // Users
         UserModule u = m.getUserModule();
-        u.registerPlayer("a", "a", "aaa", 1);
-        u.registerAdmin("b", "b", "admin");
         
+        // Users Admins
+        u.registerAdmin("a", "a", "admin full name");
         
-        
+        // Users Players
+        u.registerPlayer("p", "p", "player full name", 1);
         u.registerPlayer("manu", "a", "Manuel Atienza", 10);
         u.registerPlayer("diego", "a", "Diego Cazes", 20);
         u.registerPlayer("nico", "a", "Nicolas Puppo", 30);

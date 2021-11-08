@@ -19,10 +19,10 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="textInputField1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="textInputField2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="username_textInputField" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="password_textInputField" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="141" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -30,18 +30,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="textInputField1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="textInputField2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="187" max="32767" attributes="0"/>
+              <Component id="username_textInputField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="password_textInputField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="poker.UI.TextInputField" name="textInputField1">
+    <Component class="poker.UI.TextInputFieldComponent" name="username_textInputField">
     </Component>
-    <Component class="poker.UI.TextInputField" name="textInputField2">
+    <Component class="poker.UI.TextInputFieldComponent" name="password_textInputField">
     </Component>
   </SubComponents>
 </Form>

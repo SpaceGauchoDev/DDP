@@ -14,9 +14,9 @@ public class LocalizableString implements Localizable {
     private String myString_ES;
     private String myString_EN;
 
-    public LocalizableString(String myString_ES, String myString_EN) {
-        myString_ES = myString_ES;
-        myString_EN = myString_EN;
+    public LocalizableString(String aString_ES, String aString_EN) {
+        myString_ES = aString_ES;
+        myString_EN = aString_EN;
     }
 
     @Override

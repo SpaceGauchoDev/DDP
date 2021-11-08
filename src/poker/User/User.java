@@ -15,9 +15,25 @@ public abstract class User {
     String myId;
     String myPass;
     String myFullName;
-    
+    UserEnum myUserEnum;
     
     public abstract boolean isValid();
+    
+    public String getId(){
+        return myId;
+    }
+    
+    public String getPassword(){
+        return myPass;
+    }
+    
+    public UserEnum getUserEnum(){
+        return myUserEnum;
+    }
+    
+    public String getFullName(){
+        return myFullName;
+    }
     
     @Override
     public boolean equals(Object aObject)

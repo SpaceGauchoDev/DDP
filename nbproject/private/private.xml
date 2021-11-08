@@ -3,7 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/UsernamePassComponent.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Display/ClientUI.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/User/Player.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/PlayerView.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/Framework/View.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/User/User.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/PlayerController.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/GameModule.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/AdminView.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/AdminController.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/LoginController.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Modules.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/Framework/Controller.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/SeedData.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/PokerMain.java</file>
             <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/LoginView.java</file>
         </group>
     </open-files>

@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package poker.UI;
-import poker.UI.Framework.Model;
+import java.awt.Color;
 import poker.UI.Framework.View;
+
 
 /**
  *
@@ -13,15 +14,26 @@ import poker.UI.Framework.View;
  */
 public class LoginView extends View {
 
-    public LoginView() {
-        super();
+    public LoginView(ViewEnum aViewEnum) {
+        super(aViewEnum);
         initComponents();
+        instanciateController(aViewEnum);
     }
     
     @Override
-    public void instanciateController() {
-        LoginController controller = new LoginController(this);
+    public void instanciateController(ViewEnum aViewEnum) {
+        if(aViewEnum != ViewEnum.V_ADMIN_LOGIN  && aViewEnum != ViewEnum.V_PLAYER_LOGIN ){
+            System.out.println("Invalid ViewEnum at LoginView() instance. TODO: handle this more gracefully please.");
+            return;
+        }
+        LoginController controller = new LoginController(this, aViewEnum);
         setController(controller); 
+    }
+    
+    private void loginAttempt(){
+        LoginModel loginModel = usernamePassComponent.getModelData();
+        LoginController controller = (LoginController)getController();
+        controller.loginAttempt(loginModel);
     }
     
 
@@ -34,22 +46,50 @@ public class LoginView extends View {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        login_btn = new javax.swing.JButton();
+        usernamePassComponent = new poker.UI.UsernamePassComponent();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
+
+        login_btn.setText("Login");
+        login_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(login_btn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(usernamePassComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 612, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(usernamePassComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(login_btn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
+        loginAttempt();
+    }//GEN-LAST:event_login_btnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton login_btn;
+    private poker.UI.UsernamePassComponent usernamePassComponent;
     // End of variables declaration//GEN-END:variables
 }

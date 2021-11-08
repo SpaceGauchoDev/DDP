@@ -5,26 +5,24 @@
  */
 package poker;
 
+import poker.UI.LoginView;
+import poker.UI.ViewEnum;
+
 /**
  *
  * @author MDA 174321 :)
  */
-public class Obligatorio2_MDA {
+public class PokerMain {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        //ValorCarta v = ValorCarta.C_A;
-        //ValorCarta v1 = ValorCarta.D_A;
-        
+        Modules m = Modules.getInstancia(); // instanciate sub systems
         SeedData s = new SeedData();
         s.seed();
-        
-        
-       
+        LoginView a = new LoginView(ViewEnum.V_ADMIN_LOGIN);
+        LoginView p = new LoginView(ViewEnum.V_PLAYER_LOGIN);
     }
     
 }
