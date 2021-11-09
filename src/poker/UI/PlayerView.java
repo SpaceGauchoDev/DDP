@@ -15,9 +15,9 @@ import poker.User.Player;
 public class PlayerView extends View {
     // TODO: there is no reason why the view should hold a version of this object
     // please clean this up
-    Player  myPlayer;
+    PlayerModel  myPlayer;
 
-    public PlayerView(ViewEnum aViewEnum, Player aPlayer) {
+    public PlayerView(ViewEnum aViewEnum, PlayerModel aPlayer) {
         super(aViewEnum);
         initComponents();
         myPlayer = aPlayer;

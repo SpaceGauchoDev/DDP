@@ -6,15 +6,14 @@
 package poker.UI;
 import poker.UI.Framework.Controller;
 import poker.UI.Framework.View;
-import poker.User.Player;
 /**
  *
  * @author MDA 174321 :)
  */
 public class PlayerController extends Controller {
-    Player myPlayer;
+    PlayerModel myPlayer;
 
-    public PlayerController(View aView, ViewEnum aViewEnum, Player aPlayer) {
+    public PlayerController(View aView, ViewEnum aViewEnum, PlayerModel aPlayer) {
         super(aView, aViewEnum);
         myPlayer = aPlayer;
         

@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poker.UI;
+package poker.UI.Login;
 
 //import poker.UI.Framework.Component;
 import java.util.ArrayList;
 import poker.UI.Framework.Model;
 import poker.UI.Framework.Updatable;
+import poker.UI.TextInputFieldModel;
 
 /**
  *

@@ -15,9 +15,9 @@ import poker.User.Admin;
 public class AdminView extends View {
     // TODO: there is no reason why the view should hold a version of this object
     // please clean this up
-    Admin myAdmin;
+    AdminModel myAdmin;
 
-    public AdminView(ViewEnum aViewEnum, Admin aAdmin) {
+    public AdminView(ViewEnum aViewEnum, AdminModel aAdmin) {
         super(aViewEnum);
         initComponents();
         myAdmin = aAdmin;

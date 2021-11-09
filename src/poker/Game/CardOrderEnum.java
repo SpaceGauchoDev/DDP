@@ -30,6 +30,10 @@ public enum CardOrderEnum implements Valuable{
     private int myMultiplier = 1;
     public LocalizableString myLocString;
 
+    public LocalizableString getLocString() {
+        return myLocString;
+    }
+
     private  CardOrderEnum(int aCardOrder, String aName_ES, String aName_EN){
         myCardOrder = aCardOrder;
         myLocString = new LocalizableString(aName_ES, aName_EN);

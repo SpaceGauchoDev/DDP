@@ -6,6 +6,8 @@
 package poker.User;
 
 import java.util.ArrayList;
+import poker.UI.AdminModel;
+import poker.UI.PlayerModel;
 
 /**
  *
@@ -66,21 +68,21 @@ public class UserModule {
         return null;
     }
     
-    public Player loginPlayer(String aUsername, String aPassword){
+    public PlayerModel loginPlayer(String aUsername, String aPassword){
         Player player = getPlayerById(aUsername);
         if(player!= null && player.getPassword().equals(aPassword)){
-            return player;
+            return new PlayerModel(player.getId(), player.getFullName(), player.getFunds());
             
             // TODO: Assign to a game lobby
         }
         return null;
     }
     
-    public Admin loginAdmin(String aUsername, String aPassword){
+    public AdminModel loginAdmin(String aUsername, String aPassword){
         Admin admin = getAdminById(aUsername);
         if(admin!= null && admin.getPassword().equals(aPassword)){
-            return admin;
-            
+            return new AdminModel(admin.getId(), admin.getFullName());
+
             // TODO: Do admin on login stuff
         }
         return null;

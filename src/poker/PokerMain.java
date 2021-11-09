@@ -5,7 +5,7 @@
  */
 package poker;
 
-import poker.UI.LoginView;
+import poker.UI.Login.LoginView;
 import poker.UI.ViewEnum;
 
 /**

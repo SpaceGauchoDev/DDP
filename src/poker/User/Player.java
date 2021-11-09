@@ -14,6 +14,10 @@ import poker.Utils;
 public class Player extends User {
     int myFunds;
 
+    public int getFunds() {
+        return myFunds;
+    }
+
     @Override
     public boolean isValid(){
         if (Utils.nullOrEmpty(myId))

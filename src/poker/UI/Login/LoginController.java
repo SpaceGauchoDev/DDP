@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poker.UI;
+package poker.UI.Login;
 
 import poker.Localization.LocalizableString;
 import poker.UI.Framework.View;
 import poker.UI.Framework.Controller;
 import poker.User.UserModule;
 import poker.Modules;
+import poker.UI.AdminModel;
+import poker.UI.PlayerModel;
+import poker.UI.ViewEnum;
 
-
-// TODO: Can we not mix UI with User modules?
-import poker.User.Player;
-import poker.User.Admin;
 
 /**
  *
@@ -45,7 +44,7 @@ public class LoginController extends Controller {
     }
     
     private void playerLoginAttempt(LoginModel aLoginModel){
-        Player player = theUserModule.loginPlayer(aLoginModel.myUsername, aLoginModel.myPassword);
+        PlayerModel player = theUserModule.loginPlayer(aLoginModel.myUsername, aLoginModel.myPassword);
         if(player != null){
             System.out.println("Player login success!");
             myView.dispose();
@@ -53,11 +52,10 @@ public class LoginController extends Controller {
         }else{
             System.out.println("Player login faliure!");
         }
-            
     }
     
     private void adminLoginAttempt(LoginModel aLoginModel){
-        Admin admin = theUserModule.loginAdmin(aLoginModel.myUsername, aLoginModel.myPassword);
+        AdminModel admin = theUserModule.loginAdmin(aLoginModel.myUsername, aLoginModel.myPassword);
         if(admin != null){
             System.out.println("Admin login success!");
             myView.dispose();

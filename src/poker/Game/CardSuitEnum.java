@@ -20,6 +20,10 @@ public enum CardSuitEnum implements Valuable{
     private int mySuit;
     private int myMultiplier = 100;
     public LocalizableString myLocString;
+
+    public LocalizableString getLocString() {
+        return myLocString;
+    }
     private  CardSuitEnum(int aSuit, String aName_ES, String aName_EN){
         mySuit = aSuit;
         myLocString = new LocalizableString(aName_ES, aName_EN);

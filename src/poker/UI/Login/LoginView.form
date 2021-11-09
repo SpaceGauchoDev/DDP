@@ -58,7 +58,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_btnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="poker.UI.UsernamePassComponent" name="usernamePassComponent">
+    <Component class="poker.UI.Login.UsernamePassComponent" name="usernamePassComponent">
     </Component>
   </SubComponents>
 </Form>

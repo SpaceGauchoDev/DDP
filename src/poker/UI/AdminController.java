@@ -6,16 +6,15 @@
 package poker.UI;
 import poker.UI.Framework.Controller;
 import poker.UI.Framework.View;
-import poker.User.Admin;
 
 /**
  *
  * @author MDA 174321 :)
  */
 public class AdminController extends Controller {
-    Admin myAdmin;
+    AdminModel myAdmin;
 
-    public AdminController(View aView, ViewEnum aViewEnum, Admin aAdmin) {
+    public AdminController(View aView, ViewEnum aViewEnum, AdminModel aAdmin) {
         super(aView, aViewEnum);
         myAdmin = aAdmin;
         

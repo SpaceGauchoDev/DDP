@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poker.UI;
+package poker.UI.Login;
 import java.awt.Color;
 import poker.UI.Framework.View;
+import poker.UI.ViewEnum;
 
 
 /**
@@ -47,7 +48,7 @@ public class LoginView extends View {
     private void initComponents() {
 
         login_btn = new javax.swing.JButton();
-        usernamePassComponent = new poker.UI.UsernamePassComponent();
+        usernamePassComponent = new poker.UI.Login.UsernamePassComponent();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -90,6 +91,6 @@ public class LoginView extends View {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton login_btn;
-    private poker.UI.UsernamePassComponent usernamePassComponent;
+    private poker.UI.Login.UsernamePassComponent usernamePassComponent;
     // End of variables declaration//GEN-END:variables
 }
