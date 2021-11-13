@@ -10,11 +10,16 @@ package poker.Game;
  * @author MDA 174321 :)
  */
 public class GameModule {
-    // 6 players per game and 10 funds per blind bet
-    Configuration myConfiguration = new Configuration(1,6,10);
+    // 6 players per game, 10 funds per blind bet and 5 cards per hand
+    Configuration myConfiguration = new Configuration(1,6,10,5);
     
     
     public GameModule() {
         
     }
+    
+    public int getCardsPerHand(){
+        return myConfiguration.getCardsPerHand();
+    }
+
 }

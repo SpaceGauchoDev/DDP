@@ -12,9 +12,15 @@ import java.util.ArrayList;
  */
 public class Hand implements Valuable {
     ArrayList<Card> myCards = new ArrayList();
+    ArrayList<Pattern> myPatterns = new ArrayList();
+    int myCardsPerHand;
 
     public void setCards(ArrayList<Card> aCards) {
         myCards = aCards;
+    }
+    
+    public void resolvePatterns(){
+        
     }
     
     public Hand() {

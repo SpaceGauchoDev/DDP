@@ -14,7 +14,15 @@ import poker.Localization.LocalizableString;
  */
 public class Card implements Valuable {
     CardOrderEnum myCardOrder = CardOrderEnum.O_2;
+
+    public CardOrderEnum getCardOrder() {
+        return myCardOrder;
+    }
     CardSuitEnum myCardSuit = CardSuitEnum.S_SPADE;
+
+    public CardSuitEnum getMyCardSuit() {
+        return myCardSuit;
+    }
     LocalizableString myOfConnector = new LocalizableString("de", "of");
     LocalizableList myFullName = new LocalizableList();
 

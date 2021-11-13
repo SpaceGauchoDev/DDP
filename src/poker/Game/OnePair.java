@@ -12,12 +12,18 @@ import java.util.ArrayList;
  */
 public class OnePair extends Pattern {
 
-    public OnePair() {
-        setPattern(PatternEnum.P_ONE_PAIR);
+    public OnePair(ArrayList<Card> aCards, int aCardsPerHand) {
+        super(aCards, aCardsPerHand);
     }
 
     @Override
     public boolean satisfiesPattern(ArrayList<Card> aCards) {
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getValue() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
