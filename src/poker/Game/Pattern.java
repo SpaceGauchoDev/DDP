@@ -53,10 +53,16 @@ public abstract class Pattern implements Valuable  {
         return myValue;
     }
     
+    public void unitTestSatisfiesPattern (ArrayList<Card> aCards){
+        satisfiesPattern(aCards);
+    }
+
     // satisfiesPattern should figure out if myCards satisfies the descendant 
     // rules for pattern, if no pattern is satisfied sets a myValue of 0
 
     // if the pattern is satisfied more than one time, sets a myValue equal 
     // to the value of the highest valued pattern satisfaction
+    
+    // apply any other tie breaker rules to realize a fully comparable value
     public abstract boolean satisfiesPattern(ArrayList<Card> aCards);
 }

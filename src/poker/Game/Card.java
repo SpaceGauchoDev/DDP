@@ -5,6 +5,7 @@
  */
 package poker.Game;
 
+import java.util.Objects;
 import poker.Localization.LocalizableList;
 import poker.Localization.LocalizableString;
 
@@ -20,7 +21,7 @@ public class Card implements Valuable {
     }
     CardSuitEnum myCardSuit = CardSuitEnum.S_SPADE;
 
-    public CardSuitEnum getMyCardSuit() {
+    public CardSuitEnum getCardSuit() {
         return myCardSuit;
     }
     LocalizableString myOfConnector = new LocalizableString("de", "of");
@@ -49,4 +50,22 @@ public class Card implements Valuable {
         return myCardOrder.getValue() + myCardSuit.getValue();
     }
     
+    @Override
+    public boolean equals(Object aObject){
+        if (!(aObject instanceof Card)){
+            return false;
+        }
+        else{
+            Card card = (Card)aObject;
+            return this.myCardOrder == card.getCardOrder() && this.myCardSuit == card.getCardSuit();
+        }        
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.myCardOrder);
+        hash = 59 * hash + Objects.hashCode(this.myCardSuit);
+        return hash;
+    }
 }

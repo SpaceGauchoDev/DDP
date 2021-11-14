@@ -23,6 +23,8 @@ public class PokerMain {
         s.seed();
         LoginView a = new LoginView(ViewEnum.V_ADMIN_LOGIN);
         LoginView p = new LoginView(ViewEnum.V_PLAYER_LOGIN);
+        
+
     }
     
 }

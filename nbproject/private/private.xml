@@ -4,13 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Card.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/GameModule.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Flush.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/ThreeOfAKind.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/OnePair.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/PatternEnum.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/CardOrderEnum.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/CardSuitEnum.java</file>
             <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Hand.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Configuration.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/OnePair.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UnitTests.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/SeedData.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/PokerMain.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Utils.java</file>
             <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Pattern.java</file>
         </group>
     </open-files>

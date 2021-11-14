@@ -1,4 +1,4 @@
-/*
+/*7
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,6 +7,7 @@ package poker.UI.Login;
 import java.awt.Color;
 import poker.UI.Framework.View;
 import poker.UI.ViewEnum;
+import poker.Utils;
 
 
 /**
@@ -24,7 +25,7 @@ public class LoginView extends View {
     @Override
     public void instanciateController(ViewEnum aViewEnum) {
         if(aViewEnum != ViewEnum.V_ADMIN_LOGIN  && aViewEnum != ViewEnum.V_PLAYER_LOGIN ){
-            System.out.println("Invalid ViewEnum at LoginView() instance. TODO: handle this more gracefully please.");
+            Utils.logState("Invalid ViewEnum at LoginView() instance. TODO: handle this more gracefully please.");
             return;
         }
         LoginController controller = new LoginController(this, aViewEnum);

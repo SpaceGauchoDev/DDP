@@ -15,6 +15,7 @@ public class Flush extends Pattern {
     
     public Flush(ArrayList<Card> aCards, int aCardsPerHand) {
         super(aCards, aCardsPerHand);
+        setPattern(PatternEnum.P_FLUSH);
     }
     
     // All cards must be of the same CardSuitEnum
@@ -25,10 +26,10 @@ public class Flush extends Pattern {
         
         boolean satisfies = true;
         int numberOfCards = aCards.size();
-        CardSuitEnum cardSuit = aCards.get(0).getMyCardSuit();
+        CardSuitEnum cardSuit = aCards.get(0).getCardSuit();
         
         for(int i = 1; i < numberOfCards; i++){
-            if(aCards.get(i).getMyCardSuit() != cardSuit){
+            if(aCards.get(i).getCardSuit() != cardSuit){
                 satisfies = false;
                 break;
             }
