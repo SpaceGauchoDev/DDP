@@ -15,17 +15,16 @@ public class Hand implements Valuable {
     ArrayList<Pattern> myPatterns = new ArrayList();
     int myCardsPerHand;
 
-    public void setCards(ArrayList<Card> aCards, int aCardsPerHand) {
+    /*
+    public void setHand(ArrayList<Card> aCards, int aCardsPerHand) {
         myCards = aCards;
         myCardsPerHand = aCardsPerHand;
     }
-    
-    public void resolvePatterns(){
-        
-    }
-    
-    public Hand() {
-        
+    */
+
+    public Hand(ArrayList<Card> aCards, int aCardsPerHand) {
+        myCards = aCards;
+        myCardsPerHand = aCardsPerHand;
     }
     
     // test all patterns, in rank order and get their values if a match pattern is
