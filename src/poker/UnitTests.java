@@ -58,9 +58,9 @@ public class UnitTests {
             int scoreB = ob.getValue();
 
             if(scoreA > scoreB){
-                Utils.logTest("Correct evaluation");
+                Utils.logTest("One pair tie break scenario, correct evaluation");
             }else{
-                Utils.logTest("Incorrect evaluation");   
+                Utils.logTest("One pair tie break scenario, incorrect evaluation");   
             }        
         }
         

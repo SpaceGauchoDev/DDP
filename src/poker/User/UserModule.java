@@ -6,8 +6,10 @@
 package poker.User;
 
 import java.util.ArrayList;
+import poker.Modules;
 import poker.UI.AdminModel;
 import poker.UI.PlayerModel;
+import poker.Utils;
 
 /**
  *
@@ -68,14 +70,38 @@ public class UserModule {
         return null;
     }
     
+    // NOTE: Handle by exeption candidate. 
     public PlayerModel loginPlayer(String aUsername, String aPassword){
+        
+        // Is player registered?
         Player player = getPlayerById(aUsername);
         if(player!= null && player.getPassword().equals(aPassword)){
-            return new PlayerModel(player.getId(), player.getFullName(), player.getFunds());
+            Utils.logState("Registered player found.");
+            int blindBetValue = Modules.getInstance().getGameModule().getBlindBetValue();
             
-            // TODO: Assign to a game lobby
+            // Can player pay the blind bet?
+            if(player.getFunds() >=  blindBetValue){
+                Utils.logState("Player id: "+ player.getId() +" just logged in.");
+                PlayerModel playerModel = new PlayerModel(player.getId(), player.getFullName(), player.getFunds());
+                boolean joinAttempt = Modules.getInstance().getGameModule().playerJoinAttempt(player);
+                
+                if(joinAttempt){
+                    return playerModel;
+                }
+                else{
+                    Utils.logState("Player unable to join a game, how did we get here?");
+                    return null;
+                }
+                
+            }else{
+                Utils.logState("Player hasn't got enough funds to participate in a game.");
+                return null;
+            }
         }
-        return null;
+        else{
+            Utils.logState("No registered player found that matches the supplied credentials.");
+            return null;
+        }
     }
     
     public AdminModel loginAdmin(String aUsername, String aPassword){

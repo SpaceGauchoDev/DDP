@@ -24,7 +24,7 @@ public class Modules {
         
     }
     
-    public synchronized static Modules getInstancia(){
+    public synchronized static Modules getInstance(){
         if (theInstance == null)
             theInstance = new Modules();
         return theInstance;

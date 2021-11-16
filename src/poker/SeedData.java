@@ -15,7 +15,7 @@ import poker.User.UserModule;
  */
 public class SeedData {
     public void seed(){
-        Modules m = Modules.getInstancia();
+        Modules m = Modules.getInstance();
         // Users
         UserModule u = m.getUserModule();
         
@@ -23,10 +23,10 @@ public class SeedData {
         u.registerAdmin("a", "a", "admin full name");
         
         // Users Players
-        u.registerPlayer("p", "p", "player full name", 1);
-        u.registerPlayer("manu", "a", "Manuel Atienza", 10);
-        u.registerPlayer("diego", "a", "Diego Cazes", 20);
-        u.registerPlayer("nico", "a", "Nicolas Puppo", 30);
+        u.registerPlayer("t", "t", "player full name", 10000);
+        u.registerPlayer("y", "y", "Manuel Atienza", 10);
+        u.registerPlayer("u", "u", "Diego Cazes", 20);
+        u.registerPlayer("i", "i", "Nicolas Puppo", 30);
         u.registerPlayer("pina", "a", "Josefina Fasoli", 40);
         u.registerPlayer("mari", "a", "Mariana ??", 50);
         u.registerPlayer("joaco", "a", "Joaquin Guelfi", 60);

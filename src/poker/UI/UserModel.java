@@ -11,6 +11,10 @@ package poker.UI;
  */
 public abstract class UserModel {
     String myId;
+
+    public String getId() {
+        return myId;
+    }
     String myFullName;
 
     public String getFullName() {

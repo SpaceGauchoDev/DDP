@@ -13,6 +13,7 @@ import poker.Modules;
 import poker.UI.AdminModel;
 import poker.UI.PlayerModel;
 import poker.UI.ViewEnum;
+import poker.Utils;
 
 
 /**
@@ -22,7 +23,7 @@ import poker.UI.ViewEnum;
 public class LoginController extends Controller {
     private LocalizableString myAdminTitle = new LocalizableString("Login de administrador", "Admin login");
     private LocalizableString myPlayerTitle = new LocalizableString("Login de jugador", "Player login");
-    private UserModule theUserModule = Modules.getInstancia().getUserModule();
+    private UserModule theUserModule = Modules.getInstance().getUserModule();
             
     public LoginController(View aView, ViewEnum aViewEnum) {
         super(aView, aViewEnum);
@@ -46,11 +47,10 @@ public class LoginController extends Controller {
     private void playerLoginAttempt(LoginModel aLoginModel){
         PlayerModel player = theUserModule.loginPlayer(aLoginModel.myUsername, aLoginModel.myPassword);
         if(player != null){
-            System.out.println("Player login success!");
             myView.dispose();
             myClientUI.navigateToPlayerView(player);
         }else{
-            System.out.println("Player login faliure!");
+            Utils.logState("Player login faliure.");
         }
     }
     
@@ -61,7 +61,7 @@ public class LoginController extends Controller {
             myView.dispose();
             myClientUI.navigateToAdminView(admin);
         }else{
-            System.out.println("Admin login faliure!");
+            Utils.logState("Admin login faliure.");
         }
     }
 

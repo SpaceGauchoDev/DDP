@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/State.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/PlayerInGame.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/Game.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/GameState_Start.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Deck.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Pot.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/StateMachine.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/GameState_Open.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Hand.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/GameModule.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/PlayerController.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Game.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/OnePair.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/PatternEnum.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/SeedData.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Configuration.java</file>
             <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UnitTests.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/PokerMain.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/GameState_Lobby.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Utils.java</file>
         </group>
     </open-files>
 </project-private>

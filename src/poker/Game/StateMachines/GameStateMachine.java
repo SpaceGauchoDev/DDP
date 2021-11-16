@@ -9,13 +9,12 @@ package poker.Game.StateMachines;
  *
  * @author MDA 174321 :)
  */
-public class Game extends StateMachine {
-
-    public Game(State aInitialState) {
+public class GameStateMachine extends StateMachine {
+    
+    public GameStateMachine(State aInitialState) {
         super(aInitialState);
     }
 
-    
 
     
     
