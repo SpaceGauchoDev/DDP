@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package poker.UI;
-//import poker.Game.GameModule;
 import poker.UI.Framework.Controller;
 import poker.UI.Framework.View;
 /**
@@ -13,7 +12,6 @@ import poker.UI.Framework.View;
  */
 public class PlayerController extends Controller {
     PlayerModel myPlayer;
-    //GameModule theGameModule;
     boolean myInAGaame = false; 
 
     public PlayerController(View aView, ViewEnum aViewEnum, PlayerModel aPlayer) {

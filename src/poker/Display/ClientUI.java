@@ -5,13 +5,12 @@
  */
 package poker.Display;
 
-import java.util.ArrayList;
 import poker.Localization.LanguageEnum;
 import poker.Localization.LocalizableString;
-import poker.UI.AdminModel;
 import poker.UI.AdminView;
 import poker.UI.PlayerModel;
 import poker.UI.PlayerView;
+import poker.UI.UserModel;
 import poker.UI.ViewEnum;
 
 /**
@@ -43,7 +42,7 @@ public class ClientUI {
         PlayerView pv = new PlayerView(ViewEnum.V_GAME, aPlayer);
     }
     
-    public void navigateToAdminView(AdminModel aAdmin){
+    public void navigateToAdminView(UserModel aAdmin){
         AdminView av = new AdminView(ViewEnum.V_ADMIN, aAdmin);
     }
 

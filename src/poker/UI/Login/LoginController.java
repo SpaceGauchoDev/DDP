@@ -3,17 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//This
 package poker.UI.Login;
 
-import poker.Localization.LocalizableString;
+//Package
 import poker.UI.Framework.View;
 import poker.UI.Framework.Controller;
+import poker.UI.PlayerModel;
+import poker.UI.UserModel;
+import poker.UI.ViewEnum;
+
+//External
 import poker.User.UserModule;
 import poker.Modules;
-import poker.UI.AdminModel;
-import poker.UI.PlayerModel;
-import poker.UI.ViewEnum;
+import poker.Localization.LocalizableString;
 import poker.Utils;
+
 
 
 /**
@@ -55,9 +60,8 @@ public class LoginController extends Controller {
     }
     
     private void adminLoginAttempt(LoginModel aLoginModel){
-        AdminModel admin = theUserModule.loginAdmin(aLoginModel.myUsername, aLoginModel.myPassword);
+        UserModel admin = theUserModule.loginAdmin(aLoginModel.myUsername, aLoginModel.myPassword);
         if(admin != null){
-            System.out.println("Admin login success!");
             myView.dispose();
             myClientUI.navigateToAdminView(admin);
         }else{

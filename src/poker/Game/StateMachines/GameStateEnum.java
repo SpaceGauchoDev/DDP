@@ -9,13 +9,13 @@ package poker.Game.StateMachines;
  *
  * @author MDA 174321 :)
  */
-public class GameStateMachine extends StateMachine {
-    
-    public GameStateMachine(State aInitialState) {
-        super(aInitialState);
+public enum GameStateEnum {
+    G_LOBBY(1),
+    G_IN_PROGRESS(2),
+    G_END(3),
+    G_CLOSE(4);
+    private int myGameState;
+    private  GameStateEnum(int aGameState){
+        myGameState = aGameState;
     }
-
-
-    
-    
 }

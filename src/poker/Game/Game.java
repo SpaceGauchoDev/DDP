@@ -6,27 +6,27 @@
 package poker.Game;
 
 import java.util.ArrayList;
-import poker.Game.StateMachines.GameStateMachine;
 import poker.Game.StateMachines.GameState_Lobby;
-import poker.Game.StateMachines.GameState_Open;
-import poker.Game.StateMachines.GameState_Start;
+import poker.Game.StateMachines.StateMachine;
 
 /**
  *
  * @author MDA 174321 :)
  */
-public class Game {
+public class Game extends StateMachine {
     int myId;
     ArrayList<PlayerInGame> myPlayers = new ArrayList();
     Deck myDeck = new Deck();
     Pot myPot = new Pot();
     Configuration myConfiguration;
-    GameStateMachine myGameStateMachine = new GameStateMachine(new GameState_Open());
 
     public Game(Configuration aConfiguration, int aId) {
         myConfiguration = aConfiguration;
         myId = aId;
-        myGameStateMachine.setState(new GameState_Lobby());
+        
+        //Set entry state
+        GameState_Lobby state = new GameState_Lobby(this);
+        setState(state);
     }
 
     public int getId() {
@@ -41,14 +41,13 @@ public class Game {
         return myPlayers.contains(aPlayerInGame);
     }
     
-    public void addPlayer(PlayerInGame aPlayerInGame){
+    public void addPlayer_Action(PlayerInGame aPlayerInGame){
         if(aPlayerInGame != null && aPlayerInGame.isValid() && !isFull()){
             myPlayers.add(aPlayerInGame);
         }
         
-        if (isFull()){
-            myGameStateMachine.setState(new GameState_Start());
-        }
+        // should we transition to next state?
+        handleAction();
     } 
     
     @Override 

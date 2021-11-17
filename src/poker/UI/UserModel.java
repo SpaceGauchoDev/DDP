@@ -5,11 +5,13 @@
  */
 package poker.UI;
 
+import poker.UI.Framework.Model;
+
 /**
  *
  * @author MDA 174321 :)
  */
-public abstract class UserModel {
+public class UserModel extends Model {
     String myId;
 
     public String getId() {

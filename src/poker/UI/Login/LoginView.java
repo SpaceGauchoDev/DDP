@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package poker.UI.Login;
-import java.awt.Color;
 import poker.UI.Framework.View;
 import poker.UI.ViewEnum;
-import poker.Utils;
 
 
 /**
@@ -19,25 +17,16 @@ public class LoginView extends View {
     public LoginView(ViewEnum aViewEnum) {
         super(aViewEnum);
         initComponents();
-        instanciateController(aViewEnum);
-    }
-    
-    @Override
-    public void instanciateController(ViewEnum aViewEnum) {
-        if(aViewEnum != ViewEnum.V_ADMIN_LOGIN  && aViewEnum != ViewEnum.V_PLAYER_LOGIN ){
-            Utils.logState("Invalid ViewEnum at LoginView() instance. TODO: handle this more gracefully please.");
-            return;
-        }
+        
         LoginController controller = new LoginController(this, aViewEnum);
         setController(controller); 
     }
-    
+
     private void loginAttempt(){
         LoginModel loginModel = usernamePassComponent.getModelData();
         LoginController controller = (LoginController)getController();
         controller.loginAttempt(loginModel);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -7,8 +7,8 @@ package poker.User;
 
 import java.util.ArrayList;
 import poker.Modules;
-import poker.UI.AdminModel;
 import poker.UI.PlayerModel;
+import poker.UI.UserModel;
 import poker.Utils;
 
 /**
@@ -104,10 +104,13 @@ public class UserModule {
         }
     }
     
-    public AdminModel loginAdmin(String aUsername, String aPassword){
+    public UserModel loginAdmin(String aUsername, String aPassword){
+        
+        // Is admin registred
         Admin admin = getAdminById(aUsername);
         if(admin!= null && admin.getPassword().equals(aPassword)){
-            return new AdminModel(admin.getId(), admin.getFullName());
+            Utils.logState("Admin id: "+ admin.getId() +" just logged in.");
+            return new UserModel(admin.getId(), admin.getFullName());
 
             // TODO: Do admin on login stuff
         }

@@ -4,20 +4,19 @@
  * and open the template in the editor.
  */
 package poker.UI.Framework;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import poker.UI.ViewEnum;
 
 /**
  *
  * @author MDA 174321 :)
  */
-public abstract class View extends javax.swing.JFrame implements Updatable {
-    String myId;
+public abstract class View extends javax.swing.JFrame/* implements Updatable */{
+    //String myId;
     ViewEnum myViewEnum;
     Controller myController;
 
-
-    ArrayList<Updatable> myComponents = new ArrayList();
+    //ArrayList<Updatable> myComponents = new ArrayList();
   
     public View(ViewEnum aViewEnum) {
         initComponents();
@@ -26,9 +25,12 @@ public abstract class View extends javax.swing.JFrame implements Updatable {
         this.setLocationRelativeTo(null);
     }
     
+    /*
     // Each View derived class should implement their own instanciateController() method because 
     // only they know what Controller derived class to implement   
     public abstract void instanciateController(ViewEnum aViewEnum);
+    */
+    
     public void setController(Controller aController) {
         myController = aController;
     }
@@ -40,6 +42,7 @@ public abstract class View extends javax.swing.JFrame implements Updatable {
         this.setTitle(aTitle);
     }
     
+    /*
     public boolean UpdateComponent(String aComponentId, Model aModel){
         for(Updatable c:myComponents){
             if(c.getUpdateId().equals(aComponentId)){
@@ -97,6 +100,7 @@ public abstract class View extends javax.swing.JFrame implements Updatable {
     public void setUpdateId(String aId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.

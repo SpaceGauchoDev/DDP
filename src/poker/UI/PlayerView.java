@@ -4,24 +4,19 @@
  * and open the template in the editor.
  */
 package poker.UI;
-
 import poker.UI.Framework.View;
-import poker.User.Player;
 
 /**
  *
  * @author MDA 174321 :)
  */
 public class PlayerView extends View {
-    // TODO: there is no reason why the view should hold a version of this object
-    // please clean this up
-    PlayerModel  myPlayer;
-
     public PlayerView(ViewEnum aViewEnum, PlayerModel aPlayer) {
         super(aViewEnum);
         initComponents();
-        myPlayer = aPlayer;
-        instanciateController(aViewEnum);
+
+        PlayerController controller = new PlayerController(this, aViewEnum, aPlayer);
+        setController(controller);
     }
 
     /**
@@ -48,13 +43,6 @@ public class PlayerView extends View {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    @Override
-    public void instanciateController(ViewEnum aViewEnum) {
-        PlayerController controller = new PlayerController(this, aViewEnum, myPlayer);
-        setController(controller);
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

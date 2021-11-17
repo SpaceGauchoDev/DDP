@@ -16,7 +16,7 @@ import poker.Utils;
  */
 public class GameModule {
     // 6 players per game, 10 funds per blind bet and 5 cards per hand
-    Configuration myConfiguration = new Configuration(2,6,10,5);
+    Configuration myConfiguration = new Configuration(2,2,10,5);
     ArrayList<Game> myGames = new ArrayList();
     ArrayList<Game> myNonFullGames = new ArrayList();
     int lastGameId = 0;
@@ -68,7 +68,7 @@ public class GameModule {
         Game game = null;
         for(Game g: myNonFullGames){
             if(!g.hasPlayer(aplayerInGame)){
-                Utils.logState("Open game without player found.");
+                Utils.logState("Open game without player id:"+aplayerInGame.getId() +"  found.");
                 game = g;
             }
         }
@@ -87,9 +87,9 @@ public class GameModule {
                 // player exists in user structure and they have enough funds to join a game
                 PlayerInGame playerInGame = new PlayerInGame(aPlayer.getId(), aPlayer.getFunds());
                 Game game = getFirstNonFullGameWithoutPlayer(playerInGame);
-                game.addPlayer(playerInGame);
+                Utils.logState("Player id: "+ aPlayer.getId() + " joining game id: " + game.getId() + ".");
+                game.addPlayer_Action(playerInGame);
                 updateNonFullGamesList();
-                Utils.logState("Player id: "+ aPlayer.getId() + " joining game id: " + game.getId());
                 return true;
             }else{
                 Utils.logState("Not enough funds for blind bet.");

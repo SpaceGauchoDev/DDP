@@ -12,9 +12,9 @@ import poker.UI.Framework.View;
  * @author MDA 174321 :)
  */
 public class AdminController extends Controller {
-    AdminModel myAdmin;
+    UserModel myAdmin;
 
-    public AdminController(View aView, ViewEnum aViewEnum, AdminModel aAdmin) {
+    public AdminController(View aView, ViewEnum aViewEnum, UserModel aAdmin) {
         super(aView, aViewEnum);
         myAdmin = aAdmin;
         

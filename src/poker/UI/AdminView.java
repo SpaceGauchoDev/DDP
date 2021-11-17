@@ -6,22 +6,20 @@
 package poker.UI;
 
 import poker.UI.Framework.View;
-import poker.User.Admin;
 
 /**
  *
  * @author MDA 174321 :)
  */
 public class AdminView extends View {
-    // TODO: there is no reason why the view should hold a version of this object
-    // please clean this up
-    AdminModel myAdmin;
 
-    public AdminView(ViewEnum aViewEnum, AdminModel aAdmin) {
+    public AdminView(ViewEnum aViewEnum, UserModel aAdmin) {
         super(aViewEnum);
         initComponents();
-        myAdmin = aAdmin;
-        instanciateController(aViewEnum);
+       
+        AdminController controller = new AdminController (this, aViewEnum, aAdmin);
+        setController(controller);
+        
     }
 
     /**
@@ -48,12 +46,6 @@ public class AdminView extends View {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    @Override
-    public void instanciateController(ViewEnum aViewEnum) {
-        AdminController controller = new AdminController (this, aViewEnum, myAdmin);
-        setController(controller);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -10,6 +10,6 @@ package poker.Game.StateMachines;
  * @author MDA 174321 :)
  */
 public interface State {
-    void next(StateMachine aStateMachine);
-    void prev(StateMachine aStateMachine);
+    void handleAction(StateMachine aStateMachine);
+    void nextState(StateMachine aStateMachine, State aState);
 }

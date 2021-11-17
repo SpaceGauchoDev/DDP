@@ -12,23 +12,15 @@ package poker.Game.StateMachines;
 public abstract class StateMachine {
     private State myState;
 
+    public void handleAction(){
+        myState.handleAction(this);
+    }
+    
     public State getState() {
         return myState;
     }
 
-    public void setState(State aState) {
-        this.myState = aState;
-    }
-
-    public StateMachine(State aInitialState) {
-        myState = aInitialState;
-    }
-    
-    public void previousState() {
-        getState().prev(this);
-    }
-
-    public void nextState() {
-        getState().next(this);
+    public void setState(State aState){
+        myState = aState;
     }
 }

@@ -28,6 +28,18 @@ public class PlayerInGame {
         
         return true;        
     }
+
+    public String getId() {
+        return myId;
+    }
+
+    public boolean isHasLost() {
+        return myHasLost;
+    }
+
+    public int getFunds() {
+        return myFunds;
+    }
     
     @Override
     public boolean equals(Object aObject){
