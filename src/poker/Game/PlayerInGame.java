@@ -14,8 +14,12 @@ import poker.Utils;
  */
 public class PlayerInGame {
     String myId;
-    boolean myHasLost = false;
+    boolean myIsActive = true;
     int myFunds;
+
+    public void setIsActive(boolean aIsActive) {
+        myIsActive = aIsActive;
+    }
 
     public PlayerInGame(String aId, int aFunds) {
         myId = aId;
@@ -33,8 +37,8 @@ public class PlayerInGame {
         return myId;
     }
 
-    public boolean isHasLost() {
-        return myHasLost;
+    public boolean getIsActive() {
+        return myIsActive;
     }
 
     public int getFunds() {

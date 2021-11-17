@@ -8,6 +8,7 @@ package poker.Game;
 import java.util.ArrayList;
 import poker.Game.StateMachines.GameState_Lobby;
 import poker.Game.StateMachines.StateMachine;
+import poker.Utils;
 
 /**
  *
@@ -16,9 +17,12 @@ import poker.Game.StateMachines.StateMachine;
 public class Game extends StateMachine {
     int myId;
     ArrayList<PlayerInGame> myPlayers = new ArrayList();
-    Deck myDeck = new Deck();
+    
     Pot myPot = new Pot();
     Configuration myConfiguration;
+    
+    ArrayList<Round> myRounds = new ArrayList();
+    int myLastRoundId = 0;
 
     public Game(Configuration aConfiguration, int aId) {
         myConfiguration = aConfiguration;
@@ -41,6 +45,20 @@ public class Game extends StateMachine {
         return myPlayers.contains(aPlayerInGame);
     }
     
+    public ArrayList<PlayerInGame> getActivePlayers(){
+        ArrayList<PlayerInGame> players = new ArrayList();    
+        for(PlayerInGame p: myPlayers){
+            if(p.getIsActive()){
+                players.add(p);
+            }
+        }
+        return players;
+    }
+    
+    public void addToPot(int aFunds){
+        myPot.increaseFunds(aFunds);
+    }
+    
     public void addPlayer_Action(PlayerInGame aPlayerInGame){
         if(aPlayerInGame != null && aPlayerInGame.isValid() && !isFull()){
             myPlayers.add(aPlayerInGame);
@@ -48,7 +66,16 @@ public class Game extends StateMachine {
         
         // should we transition to next state?
         handleAction();
-    } 
+    }
+    
+    public void startRound_Action(){
+        myLastRoundId++;
+        Round round = new Round(this, myLastRoundId);
+        myRounds.add(round);
+        
+        // should we kick any players?
+        handleAction();
+    }
     
     @Override 
     public boolean equals(Object aObject){

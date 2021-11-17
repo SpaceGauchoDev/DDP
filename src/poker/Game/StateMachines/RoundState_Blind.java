@@ -5,22 +5,21 @@
  */
 package poker.Game.StateMachines;
 
-import poker.Game.Game;
+import poker.Game.Round;
 import poker.Utils;
 
 /**
  *
  * @author MDA 174321 :)
  */
-public class GameState_In_Progress implements State{
+public class RoundState_Blind implements State {
 
-    public GameState_In_Progress(StateMachine aStateMachine) {
-        if (aStateMachine instanceof Game){
-            Game game = (Game)aStateMachine;
-            Utils.logState("Game id: "+ game.getId() + " transitions to GameState_In_Progress.");
-            
-            game.startRound_Action();
-        }
+    public RoundState_Blind(StateMachine aStateMachine) {
+        if (aStateMachine instanceof Round){
+            Round round = (Round)aStateMachine;
+            Utils.logState("Game id: "+ round.getGameId() +" Round id: "+ round.getId() + " transitions to RoundState_Blind.");
+        }        
+        
     }
 
     @Override
@@ -31,5 +30,6 @@ public class GameState_In_Progress implements State{
     @Override
     public void nextState(StateMachine aStateMachine, State aState) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    }
+    
 }

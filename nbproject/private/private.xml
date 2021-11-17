@@ -4,13 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/GameState_In_Progress.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/User/User.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/PlayerInGame.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/GameModule.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/User/UserModule.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/Login/LoginController.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/PokerMain.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Round.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Pot.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/StateMachine.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Game.java</file>
             <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/GameState_Lobby.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/RoundState_Blind.java</file>
         </group>
     </open-files>
 </project-private>

@@ -19,7 +19,7 @@ public class GameModule {
     Configuration myConfiguration = new Configuration(2,2,10,5);
     ArrayList<Game> myGames = new ArrayList();
     ArrayList<Game> myNonFullGames = new ArrayList();
-    int lastGameId = 0;
+    int myLastGameId = 0;
     
     public GameModule() {
         
@@ -37,8 +37,8 @@ public class GameModule {
     private Game createNewGame(){
         if(myConfiguration != null && myConfiguration.isValid()){
             Utils.logState("Creating game.");
-            lastGameId++;
-            Game newGame = new Game(myConfiguration, lastGameId);
+            myLastGameId++;
+            Game newGame = new Game(myConfiguration, myLastGameId);
             myGames.add(newGame);
             myNonFullGames.add(newGame);
             return newGame;            
