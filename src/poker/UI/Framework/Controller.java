@@ -5,29 +5,19 @@
  */
 package poker.UI.Framework;
 
-import poker.Display.ClientUI;
-import poker.Localization.LocalizableString;
-import poker.UI.ViewEnum;
-
 /**
  *
  * @author MDA 174321 :)
  */
 public abstract class Controller {
     public View myView;
-    public ViewEnum myViewEnum;
     public ClientUI myClientUI = new ClientUI();
 
-    public Controller(View aView, ViewEnum aViewEnum) {
+    public Controller(View aView) {
         myView = aView;
-        myViewEnum = aViewEnum;
     }
     
-    public void setTitle(LocalizableString aLocalizedString){
-        myView.mySetTitle(myClientUI.toLocalizedString(aLocalizedString));
-    }
-
-    public void setTitleUnlocalized(String aString){
+    public void setWindowTitle(String aString){
         myView.mySetTitle(aString);
     }
 }

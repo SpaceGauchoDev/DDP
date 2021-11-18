@@ -5,11 +5,13 @@
  */
 package poker.Game.StateMachines;
 
+import poker.UI.Framework.Observable;
+
 /**
  *
  * @author MDA 174321 :)
  */
-public abstract class StateMachine {
+public abstract class StateMachine extends Observable {
     private State myState;
 
     public void handleAction(){

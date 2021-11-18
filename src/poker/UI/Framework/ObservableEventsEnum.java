@@ -9,9 +9,14 @@ package poker.UI.Framework;
  *
  * @author MDA 174321 :)
  */
-public interface Updatable {
-    public void Update(Model aModel);
-    public boolean UpdateComponent(String aComponentId, Model aModel);
-    public String getUpdateId();
-    public void setUpdateId(String aId);
+public enum ObservableEventsEnum {
+    O_GAME_STATE_CHANGED(1),
+    O_ROUND_STATE_CHANGED(2),
+    O_PLAYER_JOINED_LOBBY(3);
+    
+    private int myEvent;
+    private  ObservableEventsEnum(int aEvent){
+        myEvent = aEvent;
+    }
+
 }

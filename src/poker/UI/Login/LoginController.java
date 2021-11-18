@@ -11,12 +11,10 @@ import poker.UI.Framework.View;
 import poker.UI.Framework.Controller;
 import poker.UI.Player.PlayerModel;
 import poker.UI.UserModel;
-import poker.UI.ViewEnum;
 
 //External
 import poker.User.UserModule;
 import poker.Modules;
-import poker.Localization.LocalizableString;
 import poker.Utils;
 
 /**
@@ -24,26 +22,31 @@ import poker.Utils;
  * @author MDA 174321 :)
  */
 public class LoginController extends Controller {
-    private LocalizableString myAdminTitle = new LocalizableString("Login de administrador", "Admin login");
-    private LocalizableString myPlayerTitle = new LocalizableString("Login de jugador", "Player login");
+    private static String myAdminTitle = "Login de administrador";
+    private static String myPlayerTitle = "Login de jugador";
     private UserModule theUserModule = Modules.getInstance().getUserModule();
+    private boolean myIsPlayer;
             
-    public LoginController(View aView, ViewEnum aViewEnum) {
-        super(aView, aViewEnum);
+    public LoginController(View aView, boolean aIsPlayer) {
+        super(aView);
+        myIsPlayer = aIsPlayer;
         setLoginTitle();
     }
     
     private void setLoginTitle(){
-        switch (myViewEnum) {
-            case V_ADMIN_LOGIN -> setTitle(myAdminTitle);
-            case V_PLAYER_LOGIN -> setTitle(myPlayerTitle);
+        if(myIsPlayer){
+            setWindowTitle(myPlayerTitle);
+        
+        }else{
+            setWindowTitle(myAdminTitle);
         }
     }
     
     public void loginAttempt(LoginModel aLoginModel){
-        switch (myViewEnum) {
-            case V_ADMIN_LOGIN -> adminLoginAttempt(aLoginModel);
-            case V_PLAYER_LOGIN -> playerLoginAttempt(aLoginModel);
+        if(myIsPlayer){
+            playerLoginAttempt(aLoginModel);
+        }else{
+            adminLoginAttempt(aLoginModel);
         }
     }
     
@@ -67,5 +70,5 @@ public class LoginController extends Controller {
         }
     }
 
-    
+
 }

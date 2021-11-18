@@ -23,6 +23,10 @@ public class Game extends StateMachine {
     
     ArrayList<Round> myRounds = new ArrayList();
     int myLastRoundId = 0;
+    
+    public Game(int aId) {
+        myId = aId;
+    }
 
     public Game(Configuration aConfiguration, int aId) {
         myConfiguration = aConfiguration;

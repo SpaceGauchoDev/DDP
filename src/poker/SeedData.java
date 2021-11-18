@@ -5,8 +5,6 @@
  */
 package poker;
 
-import poker.Display.ClientUI;
-import poker.Localization.LanguageEnum;
 import poker.User.UserModule;
 
 /**

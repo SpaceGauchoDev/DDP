@@ -4,26 +4,27 @@
  * and open the template in the editor.
  */
 package poker.Game;
-
-import poker.Localization.LocalizableString;
-
 /**
  *
  * @author MDA 174321 :)
  */
 public enum PatternEnum implements Valuable{
-    P_NONE(0, "Ninguno", "None"),
-    P_ONE_PAIR(1, "Par", "One pair"),
-    P_THREE_OF_A_KIND(2, "Pierna", "Three of a kind"),
-    P_FLUSH(3, "Color", "Flush");
+    P_NONE(0, "Ninguno"),
+    P_ONE_PAIR(1, "Par"),
+    P_THREE_OF_A_KIND(2, "Pierna"),
+    P_FLUSH(3, "Color");
     
     private int myPattern;
     private int myMultiplier = 1000;
-    public LocalizableString myLocString;
+    private String myName;
+    
+    public String getName(){
+        return myName;
+    }
 
-    private  PatternEnum(int aPattern, String aName_ES, String aName_EN){
+    private  PatternEnum(int aPattern, String aName){
         myPattern = aPattern;
-        myLocString = new LocalizableString(aName_ES, aName_EN);
+        myName = aName;
     }
    
     @Override

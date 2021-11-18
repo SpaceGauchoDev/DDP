@@ -10,5 +10,5 @@ package poker.UI.Framework;
  * @author MDA 174321 :)
  */
 public interface Observer {
-    
+    public void update(Observable source, ObservableEventsEnum event);
 }

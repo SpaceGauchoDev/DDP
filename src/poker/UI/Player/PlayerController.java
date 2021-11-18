@@ -4,29 +4,38 @@
  * and open the template in the editor.
  */
 package poker.UI.Player;
+import poker.Game.Game;
+import poker.Modules;
 import poker.UI.Framework.Controller;
+import poker.UI.Framework.Observable;
+import poker.UI.Framework.ObservableEventsEnum;
+import poker.UI.Framework.Observer;
 import poker.UI.Framework.View;
-import poker.UI.ViewEnum;
 import poker.Utils;
 /**
  *
  * @author MDA 174321 :)
  */
-public class PlayerController extends Controller {
+public class PlayerController extends Controller implements Observer{
     PlayerModel myLocalPlayer;
     PlayerView myPlayerView;
+    Game myGame;
+    
     
     int myCurrentMinBet = 0;    // TODO: get real values
     int myCurrentMaxBet = 20;   // TODO: get real values
     
-    public PlayerController(View aView, ViewEnum aViewEnum, PlayerModel aPlayer) {
-        super(aView, aViewEnum);
+    public PlayerController(View aView, PlayerModel aPlayer) {
+        super(aView);
         myLocalPlayer = aPlayer;
-        setTitleUnlocalized(myLocalPlayer.getFullName());
+        setWindowTitle(myLocalPlayer.getFullName());
         
         if (aView instanceof PlayerView){
             myPlayerView = (PlayerView)aView;
         }
+        
+        myGame = Modules.getInstance().getGameModule().getGameById(myLocalPlayer.myGameId);
+        myGame.addObserver(this);
     }
     
     //Stage 1 and player wants to make a bet
@@ -77,6 +86,22 @@ public class PlayerController extends Controller {
     //Stage 3 and player wants to leave game
     public void playerWantsToLeaveTheGame(){
         Utils.logState("Player id: "+ myLocalPlayer.getId() +" wants to leave the game.");
+    }
+
+    @Override
+    public void update(Observable source, ObservableEventsEnum event) {
+        switch(event){
+            case O_GAME_STATE_CHANGED:
+                // do stuff
+                break;
+            case O_ROUND_STATE_CHANGED:
+                // do stuff
+                break;
+            case O_PLAYER_JOINED_LOBBY:
+                // do stuff
+                break;
+            default:
+        }
     }
     
     

@@ -6,7 +6,6 @@
 package poker.UI.Player;
 import java.util.ArrayList;
 import poker.UI.Framework.View;
-import poker.UI.ViewEnum;
 
 /**
  *
@@ -15,11 +14,11 @@ import poker.UI.ViewEnum;
 public class PlayerView extends View {
     ArrayList<PlayerRowComponent> myPlayerRows = new ArrayList();
     
-    public PlayerView(ViewEnum aViewEnum, PlayerModel aPlayer) {
-        super(aViewEnum);
+    public PlayerView(PlayerModel aPlayer) {
+        super();
         initComponents();
 
-        PlayerController controller = new PlayerController(this, aViewEnum, aPlayer);
+        PlayerController controller = new PlayerController(this, aPlayer);
         setController(controller);
         
         playerInputDoBetFieldComp1.set(controller);

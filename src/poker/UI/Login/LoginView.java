@@ -5,7 +5,6 @@
  */
 package poker.UI.Login;
 import poker.UI.Framework.View;
-import poker.UI.ViewEnum;
 
 
 /**
@@ -14,11 +13,11 @@ import poker.UI.ViewEnum;
  */
 public class LoginView extends View {
 
-    public LoginView(ViewEnum aViewEnum) {
-        super(aViewEnum);
+    public LoginView(boolean aIsPlayer) {
+        super();
         initComponents();
         
-        LoginController controller = new LoginController(this, aViewEnum);
+        LoginController controller = new LoginController(this, aIsPlayer);
         setController(controller); 
     }
 

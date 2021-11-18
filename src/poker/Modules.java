@@ -6,13 +6,14 @@
 package poker;
 
 import poker.Game.GameModule;
+import poker.UI.Framework.Observable;
 import poker.User.UserModule;
 
 /**
  *
  * @author MDA 174321 :)
  */
-public class Modules {
+public class Modules extends Observable {
     // Protected singleton
     private static Modules theInstance;
     

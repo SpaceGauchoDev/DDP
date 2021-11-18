@@ -5,13 +5,11 @@
  */
 package poker.UI;
 import poker.UI.Framework.Model;
-import poker.UI.Framework.Updatable;
-
 /**
  *
  * @author MDA 174321 :)
  */
-public class TextInputFieldComponent extends javax.swing.JPanel implements Updatable {
+public class TextInputFieldComponent extends javax.swing.JPanel {
     private String myId;
     public String myLabel = "Label";
     public String myText = "Placeholder";
@@ -99,26 +97,9 @@ public class TextInputFieldComponent extends javax.swing.JPanel implements Updat
     private javax.swing.JLabel warning_label;
     // End of variables declaration//GEN-END:variables
 
-    @Override
     public void Update(Model aModel) {
         inputLabel_label.setText(myLabel);
         input_textField.setText(myText);
         warning_label.setText(myWarning);
-    }
-
-    @Override
-    public String getUpdateId() {
-        return myId;
-    }
-
-    @Override
-    public void setUpdateId(String aId) {
-        myId = aId;
-    }
-
-    @Override
-    public boolean UpdateComponent(String aComponentId, Model aModel) {
-        // No subcomponents so no updates
-        return true;
     }
 }

@@ -14,11 +14,11 @@ import poker.UI.Framework.View;
 public class AdminController extends Controller {
     UserModel myAdmin;
 
-    public AdminController(View aView, ViewEnum aViewEnum, UserModel aAdmin) {
-        super(aView, aViewEnum);
+    public AdminController(View aView, UserModel aAdmin) {
+        super(aView);
         myAdmin = aAdmin;
         
-        setTitleUnlocalized(myAdmin.getFullName());
+        setWindowTitle(myAdmin.getFullName());
     }
     
     

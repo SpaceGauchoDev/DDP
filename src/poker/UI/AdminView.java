@@ -13,13 +13,12 @@ import poker.UI.Framework.View;
  */
 public class AdminView extends View {
 
-    public AdminView(ViewEnum aViewEnum, UserModel aAdmin) {
-        super(aViewEnum);
+    public AdminView(UserModel aAdmin) {
+        super();
         initComponents();
        
-        AdminController controller = new AdminController (this, aViewEnum, aAdmin);
+        AdminController controller = new AdminController (this, aAdmin);
         setController(controller);
-        
     }
 
     /**

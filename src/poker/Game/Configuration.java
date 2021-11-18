@@ -5,8 +5,6 @@
  */
 package poker.Game;
 
-import poker.Localization.LanguageEnum;
-
 /**
  *
  * @author MDA 174321 :)

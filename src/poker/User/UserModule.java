@@ -82,10 +82,10 @@ public class UserModule {
             // Can player pay the blind bet?
             if(player.getFunds() >=  blindBetValue){
                 Utils.logState("Player id: "+ player.getId() +" just logged in.");
-                PlayerModel playerModel = new PlayerModel(player.getId(), player.getFullName(), player.getFunds());
-                boolean joinAttempt = Modules.getInstance().getGameModule().playerJoinAttempt(player);
-                
-                if(joinAttempt){
+                int gameId = Modules.getInstance().getGameModule().playerJoinAttempt(player);
+
+                if(gameId != -1 ){
+                    PlayerModel playerModel = new PlayerModel(player.getId(), player.getFullName(), player.getFunds(), gameId);
                     return playerModel;
                 }
                 else{

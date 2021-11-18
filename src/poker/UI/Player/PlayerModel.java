@@ -5,7 +5,7 @@
  */
 package poker.UI.Player;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import poker.UI.UserModel;
 
 /**
@@ -14,6 +14,9 @@ import poker.UI.UserModel;
  */
 public class PlayerModel extends UserModel{
     public int myFunds;
+    public int myGameId;
+    
+    /*
     public String myPattern; 
     public ArrayList<CardModel> myCards;
     public boolean myWonRound;
@@ -21,9 +24,11 @@ public class PlayerModel extends UserModel{
     public String myPatternName;
     public String myHighestCardName;
     public boolean myIsLocalPlayer;
+    */
     
-    public PlayerModel(String aId, String aFullName, int aFunds) {
+    public PlayerModel(String aId, String aFullName, int aFunds, int aGameId) {
         super(aId, aFullName);
         myFunds = aFunds;
+        myGameId = aGameId;
     }
 }

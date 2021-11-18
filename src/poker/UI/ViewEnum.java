@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package poker.UI;
-import poker.Localization.LocalizableString;
 
 /**
  *
  * @author MDA 174321 :)
  */
+/*
 public enum ViewEnum {
     V_ADMIN_LOGIN(1, "Vista login administrador", "Administrator login view"),
     V_PLAYER_LOGIN(2, "Vista login jugador", "Player login view"),
@@ -23,3 +23,4 @@ public enum ViewEnum {
         myLocString = new LocalizableString(aName_ES, aName_EN);
     }
 }
+*/

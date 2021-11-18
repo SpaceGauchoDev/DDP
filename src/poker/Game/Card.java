@@ -6,9 +6,6 @@
 package poker.Game;
 
 import java.util.Objects;
-import poker.Localization.LocalizableList;
-import poker.Localization.LocalizableString;
-
 /**
  *
  * @author MDA 174321 :)
@@ -24,20 +21,14 @@ public class Card implements Valuable {
     public CardSuitEnum getCardSuit() {
         return myCardSuit;
     }
-    LocalizableString myOfConnector = new LocalizableString("de", "of");
-    LocalizableList myFullName = new LocalizableList();
-
-    public LocalizableList getMyFullName() {
-        return myFullName;
+    
+    public String getName() {
+        return myCardOrder.getName() + " de " + myCardSuit.getName();
     }
     
     public void setCard(CardOrderEnum aCardOrder, CardSuitEnum aCardSuit) {
         myCardOrder = aCardOrder;
         myCardSuit = aCardSuit;
-        
-        myFullName.add(myCardOrder.getLocString());
-        myFullName.add(myOfConnector);
-        myFullName.add(myCardSuit.getLocString());
     }
     
     public Card(CardOrderEnum aCardOrder, CardSuitEnum aCardSuit) {

@@ -6,8 +6,6 @@
 package poker;
 
 import poker.UI.Login.LoginView;
-import poker.UI.ViewEnum;
-
 /**
  *
  * @author MDA 174321 :)
@@ -21,12 +19,11 @@ public class PokerMain {
         Modules m = Modules.getInstance(); // instanciate sub systems
         SeedData s = new SeedData();
         s.seed();
-        //LoginView a = new LoginView(ViewEnum.V_ADMIN_LOGIN);
-        LoginView p1 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
-        //LoginView p2 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
-        //LoginView p3 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
-        
-        
+        //LoginView a = new LoginView(false);
+        LoginView p1 = new LoginView(true);
+        //LoginView p2 = new LoginView(true);
+        //LoginView p3 = new LoginView(true);
+       
 
     }
     

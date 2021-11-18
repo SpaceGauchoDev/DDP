@@ -4,30 +4,26 @@
  * and open the template in the editor.
  */
 package poker.Game;
-
-import poker.Localization.LocalizableString;
-import poker.Utils;
-
 /**
  *
  * @author MDA 174321 :)
  */
 public enum CardSuitEnum implements Valuable{
-    S_SPADE(1, "Pica", "Spades"),
-    S_CLUB(2, "Trebol", "Clubs"),
-    S_DIAMOND(3, "Diamante", "Diamonds"),
-    S_HEART(4, "Corazón", "Hearts");
+    S_SPADE(1, "Pica"),
+    S_CLUB(2, "Trebol"),
+    S_DIAMOND(3, "Diamante"),
+    S_HEART(4, "Corazón");
     
     private int mySuit;
     private int myMultiplier = 100;
-    public LocalizableString myLocString;
+    private String myName;
 
-    public LocalizableString getLocString() {
-        return myLocString;
+    public String getName() {
+        return myName;
     }
-    private  CardSuitEnum(int aSuit, String aName_ES, String aName_EN){
+    private  CardSuitEnum(int aSuit, String aName){
+        myName = aName;
         mySuit = aSuit;
-        myLocString = new LocalizableString(aName_ES, aName_EN);
     }
    
     @Override

@@ -4,21 +4,13 @@
  * and open the template in the editor.
  */
 package poker.UI.Login;
-
-//import poker.UI.Framework.Component;
-import java.util.ArrayList;
-import poker.UI.Framework.Model;
-import poker.UI.Framework.Updatable;
 import poker.UI.TextInputFieldModel;
 
 /**
  *
  * @author MDA 174321 :)
  */
-public class UsernamePassComponent extends javax.swing.JPanel implements Updatable {
-    private String myId;
-    ArrayList<Updatable> myComponents = new ArrayList();
-
+public class UsernamePassComponent extends javax.swing.JPanel {
     public UsernamePassComponent() {
         initComponents();
         username_textInputField.set("Username:", "", "");
@@ -64,66 +56,6 @@ public class UsernamePassComponent extends javax.swing.JPanel implements Updatab
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    @Override
-    public void Update(Model aModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getUpdateId() {
-        return myId;
-    }
-
-    @Override
-    public void setUpdateId(String aId) {
-        myId = aId;
-    }
-
-    @Override
-    public boolean UpdateComponent(String aComponentId, Model aModel) {
-        for(Updatable u:myComponents){
-            if(u.getUpdateId().equals(aComponentId)){
-                u.Update(aModel);
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    // TODO: repeated behaviour, do we need a generalization to handle lists?
-    // add<SomeObject>()
-    // <SomeObject>Exists()
-    // get<SomeObject>ById()
-    
-    // Other suspect objects:
-    // Component.java
-    // UserModule.java
-    public boolean addComponent(Updatable aComponent){
-        if (aComponent != null){
-            if(!componentExists(aComponent)){
-                myComponents.add(aComponent);
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public boolean componentExists(Updatable aComponent){
-        return myComponents.contains(aComponent);
-    }
-    
-    // NOTE: Inefficient search algorithm, replace myComponents with a data structure that supports better search
-    // algorithms for improved efficiency
-    public Updatable getComponentById (String aComponentId){
-        for(Updatable u:myComponents){
-            if(u.getUpdateId().equals(aComponentId)){
-                return u;
-            }
-        }
-        return null;
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private poker.UI.TextInputFieldComponent password_textInputField;

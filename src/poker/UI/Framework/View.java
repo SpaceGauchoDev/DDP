@@ -4,32 +4,19 @@
  * and open the template in the editor.
  */
 package poker.UI.Framework;
-//import java.util.ArrayList;
-import poker.UI.ViewEnum;
 
 /**
  *
  * @author MDA 174321 :)
  */
-public abstract class View extends javax.swing.JFrame/* implements Updatable */{
-    //String myId;
-    ViewEnum myViewEnum;
+public abstract class View extends javax.swing.JFrame{
     Controller myController;
 
-    //ArrayList<Updatable> myComponents = new ArrayList();
-  
-    public View(ViewEnum aViewEnum) {
+    public View() {
         initComponents();
-        myViewEnum = aViewEnum;
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
-    
-    /*
-    // Each View derived class should implement their own instanciateController() method because 
-    // only they know what Controller derived class to implement   
-    public abstract void instanciateController(ViewEnum aViewEnum);
-    */
     
     public void setController(Controller aController) {
         myController = aController;
@@ -41,66 +28,6 @@ public abstract class View extends javax.swing.JFrame/* implements Updatable */{
     public void mySetTitle(String aTitle){
         this.setTitle(aTitle);
     }
-    
-    /*
-    public boolean UpdateComponent(String aComponentId, Model aModel){
-        for(Updatable c:myComponents){
-            if(c.getUpdateId().equals(aComponentId)){
-                c.Update(aModel);
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    // TODO: repeated behaviour, do we need a generalization to handle lists?
-    // add<SomeObject>()
-    // <SomeObject>Exists()
-    // get<SomeObject>ById()
-    
-    // Other suspect objects:
-    // Component.java
-    // UserModule.java
-    public boolean addComponent(Updatable aComponent){
-        if (aComponent != null){
-            if(!componentExists(aComponent)){
-                myComponents.add(aComponent);
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public boolean componentExists(Updatable aComponent){
-        return myComponents.contains(aComponent);
-    }
-    
-    // NOTE: Inefficient search algorithm, replace myComponents with a data structure that supports better search
-    // algorithms for improved efficiency
-    public Updatable getComponentById (String aComponentId){
-        for(Updatable u:myComponents){
-            if(u.getUpdateId().equals(aComponentId)){
-                return u;
-            }
-        }
-        return null;
-    }
-    
-    @Override
-    public void Update(Model aModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getUpdateId() {
-        return myId;
-    }
-
-    @Override
-    public void setUpdateId(String aId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    */
     
     /**
      * This method is called from within the constructor to initialize the form.

@@ -81,7 +81,7 @@ public class GameModule {
     }
     
     //TODO: Handle by exeption candidate
-    public boolean playerJoinAttempt(Player aPlayer){
+    public int playerJoinAttempt(Player aPlayer){
         if(aPlayer != null && aPlayer.isValid()){
             if(aPlayer.getFunds() >= myConfiguration.getBlindBetValue()){
                 // player exists in user structure and they have enough funds to join a game
@@ -90,16 +90,29 @@ public class GameModule {
                 Utils.logState("Player id: "+ aPlayer.getId() + " joining game id: " + game.getId() + ".");
                 game.addPlayer_Action(playerInGame);
                 updateNonFullGamesList();
-                return true;
+                return game.myId;
             }else{
                 Utils.logState("Not enough funds for blind bet.");
-                return false;
+                return -1;
             }
         }
         else{
             Utils.logState("Invalid Player, how did we get here?");                    
-            return false;
+            return -1;
         }
+    }
+    
+    public Game getGameById(int aGameId){
+        Game searchGame = new Game(aGameId);
+       
+        for (int i= 0; i < myGames.size(); i++){
+            Game game = myGames.get(i);
+            if(game.equals(searchGame)){
+                return game;
+            }
+        }
+        
+        return null;
     }
 
 }
