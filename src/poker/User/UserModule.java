@@ -7,7 +7,7 @@ package poker.User;
 
 import java.util.ArrayList;
 import poker.Modules;
-import poker.UI.PlayerModel;
+import poker.UI.Player.PlayerModel;
 import poker.UI.UserModel;
 import poker.Utils;
 

@@ -43,4 +43,8 @@ public enum CardOrderEnum implements Valuable{
     public int getValue() {
         return myCardOrder * myMultiplier;
     }
+    
+    public int getIndex(){
+        return myCardOrder;
+    }
 }

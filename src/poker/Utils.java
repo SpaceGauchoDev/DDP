@@ -24,7 +24,7 @@ public class Utils {
         }
     }
     
-    private static VerbosityLevelEnum myVerbosity = VerbosityLevelEnum.V_STATE_LOGS;
+    private static VerbosityLevelEnum myVerbosity = VerbosityLevelEnum.V_DEBUG_LOGS;
     
     
     public static boolean nullOrEmpty(String s){

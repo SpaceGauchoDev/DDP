@@ -9,7 +9,7 @@ package poker.UI.Login;
 //Package
 import poker.UI.Framework.View;
 import poker.UI.Framework.Controller;
-import poker.UI.PlayerModel;
+import poker.UI.Player.PlayerModel;
 import poker.UI.UserModel;
 import poker.UI.ViewEnum;
 

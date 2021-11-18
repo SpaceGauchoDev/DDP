@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/GameState_In_Progress.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Round.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Pot.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/StateMachine.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/Game.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/GameState_Lobby.java</file>
-            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/StateMachines/RoundState_Blind.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/CardOrderEnum.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/Login/LoginView.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Game/CardSuitEnum.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/Player/CardImageComponent.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/UI/Login/LoginController.java</file>
+            <file>file:/D:/MyStuff/ORT/AP/S70/DDA/DPP/src/poker/Utils.java</file>
         </group>
     </open-files>
 </project-private>

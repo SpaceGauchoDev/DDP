@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poker.UI;
+package poker.UI.Player;
 import poker.UI.Framework.Controller;
 import poker.UI.Framework.View;
+import poker.UI.ViewEnum;
 /**
  *
  * @author MDA 174321 :)

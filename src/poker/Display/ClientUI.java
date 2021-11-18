@@ -8,8 +8,8 @@ package poker.Display;
 import poker.Localization.LanguageEnum;
 import poker.Localization.LocalizableString;
 import poker.UI.AdminView;
-import poker.UI.PlayerModel;
-import poker.UI.PlayerView;
+import poker.UI.Player.PlayerModel;
+import poker.UI.Player.PlayerView;
 import poker.UI.UserModel;
 import poker.UI.ViewEnum;
 

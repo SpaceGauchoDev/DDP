@@ -6,6 +6,7 @@
 package poker.Game;
 
 import poker.Localization.LocalizableString;
+import poker.Utils;
 
 /**
  *
@@ -32,5 +33,13 @@ public enum CardSuitEnum implements Valuable{
     @Override
     public int getValue() {
         return mySuit * myMultiplier;
+    }
+    
+    public boolean isRed(){
+        return mySuit > 2;
+    }
+    
+    public int getIndex(){
+        return mySuit;
     }
 }
