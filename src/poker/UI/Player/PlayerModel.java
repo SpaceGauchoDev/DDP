@@ -5,6 +5,7 @@
  */
 package poker.UI.Player;
 
+import java.util.ArrayList;
 import poker.UI.UserModel;
 
 /**
@@ -12,7 +13,14 @@ import poker.UI.UserModel;
  * @author MDA 174321 :)
  */
 public class PlayerModel extends UserModel{
-    int myFunds;
+    public int myFunds;
+    public String myPattern; 
+    public ArrayList<CardModel> myCards;
+    public boolean myWonRound;
+    public boolean myHasPattern;
+    public String myPatternName;
+    public String myHighestCardName;
+    public boolean myIsLocalPlayer;
     
     public PlayerModel(String aId, String aFullName, int aFunds) {
         super(aId, aFullName);

@@ -5,6 +5,7 @@
  */
 package poker.UI;
 
+import java.util.Objects;
 import poker.UI.Framework.Model;
 
 /**
@@ -26,5 +27,23 @@ public class UserModel extends Model {
     public UserModel(String aId, String aFullName) {
         myId = aId;
         myFullName = aFullName;
+    }
+    
+    @Override
+    public boolean equals(Object oObject){
+        if (!(oObject instanceof UserModel)){
+            return false;
+        }
+        else{
+            UserModel userModel = (UserModel)oObject;
+            return this.myId.equals(userModel.myId);
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.myId);
+        return hash;
     }
 }

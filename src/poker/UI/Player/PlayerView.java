@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package poker.UI.Player;
+import java.util.ArrayList;
 import poker.UI.Framework.View;
 import poker.UI.ViewEnum;
 
@@ -12,14 +13,43 @@ import poker.UI.ViewEnum;
  * @author MDA 174321 :)
  */
 public class PlayerView extends View {
+    ArrayList<PlayerRowComponent> myPlayerRows = new ArrayList();
+    
     public PlayerView(ViewEnum aViewEnum, PlayerModel aPlayer) {
         super(aViewEnum);
         initComponents();
 
         PlayerController controller = new PlayerController(this, aViewEnum, aPlayer);
         setController(controller);
+        
+        playerInputDoBetFieldComp1.set(controller);
+        //playerInputDoBetFieldComp1.setInactive();
+        
+        myBetChoiceComponent.set("Pagar apuesta?", "Si", "No", true, controller);
+        //myBetChoiceComponent.setInactive();
+        
+        myRoundChoiceComponent.set("Otra ronda?", "Si", "No", false, controller);
+        //myRoundChoiceComponent.setInactive();
+        
+        myPlayerRows.add(myPlayerRow_4);
+        myPlayerRows.add(myPlayerRow_3);
+        myPlayerRows.add(myPlayerRow_2);
+        myPlayerRows.add(myPlayerRow_1);
+        myPlayerRows.add(myPlayerRow_0);
     }
-
+    
+    public void setInvalidBetRangeWarning(){
+        playerInputDoBetFieldComp1.setWarning("Apuesta fuera de rango.");
+    }
+    
+    public void setInvalidBetDataTypeWarning(){
+        playerInputDoBetFieldComp1.setWarning("Apuesta inválida.");
+    }
+    
+    public void clearWarning(){
+        playerInputDoBetFieldComp1.clearWarning();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,24 +59,112 @@ public class PlayerView extends View {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        myPotInfoField = new javax.swing.JTextField();
+        myPlayerRow_0 = new poker.UI.Player.PlayerRowComponent();
+        myPlayerRow_1 = new poker.UI.Player.PlayerRowComponent();
+        myPlayerRow_2 = new poker.UI.Player.PlayerRowComponent();
+        myPlayerRow_3 = new poker.UI.Player.PlayerRowComponent();
+        myPlayerRow_4 = new poker.UI.Player.PlayerRowComponent();
+        myPotLabel = new javax.swing.JLabel();
+        playerInputDoBetFieldComp1 = new poker.UI.Player.PlayerInputDoBetFieldComp();
+        myBetChoiceComponent = new poker.UI.Player.BinaryChoicePromptComponent();
+        myRoundChoiceComponent = new poker.UI.Player.BinaryChoicePromptComponent();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 800));
+        setBackground(new java.awt.Color(150, 150, 150));
         setResizable(false);
+
+        myPotInfoField.setEditable(false);
+        myPotInfoField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        myPotInfoField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        myPotInfoField.setEnabled(false);
+        myPotInfoField.setFocusable(false);
+        myPotInfoField.setPreferredSize(new java.awt.Dimension(60, 40));
+        myPotInfoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myPotInfoFieldActionPerformed(evt);
+            }
+        });
+
+        myPotLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        myPotLabel.setText("Pozo: ");
+
+        playerInputDoBetFieldComp1.setMaximumSize(new java.awt.Dimension(202, 93));
+
+        myBetChoiceComponent.setMinimumSize(new java.awt.Dimension(144, 93));
+
+        myRoundChoiceComponent.setMinimumSize(new java.awt.Dimension(144, 93));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(myPotLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(myPotInfoField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(playerInputDoBetFieldComp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(myBetChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(myRoundChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(myPlayerRow_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(myPlayerRow_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(myPlayerRow_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(myPlayerRow_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(myPlayerRow_0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 687, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(myPotLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myPotInfoField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(myPlayerRow_0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(myPlayerRow_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(myPlayerRow_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(myPlayerRow_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(myPlayerRow_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(playerInputDoBetFieldComp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myBetChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myRoundChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void myPotInfoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myPotInfoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_myPotInfoFieldActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private poker.UI.Player.BinaryChoicePromptComponent myBetChoiceComponent;
+    private poker.UI.Player.PlayerRowComponent myPlayerRow_0;
+    private poker.UI.Player.PlayerRowComponent myPlayerRow_1;
+    private poker.UI.Player.PlayerRowComponent myPlayerRow_2;
+    private poker.UI.Player.PlayerRowComponent myPlayerRow_3;
+    private poker.UI.Player.PlayerRowComponent myPlayerRow_4;
+    private javax.swing.JTextField myPotInfoField;
+    private javax.swing.JLabel myPotLabel;
+    private poker.UI.Player.BinaryChoicePromptComponent myRoundChoiceComponent;
+    private poker.UI.Player.PlayerInputDoBetFieldComp playerInputDoBetFieldComp1;
     // End of variables declaration//GEN-END:variables
 }

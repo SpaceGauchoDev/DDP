@@ -19,8 +19,6 @@ import poker.Modules;
 import poker.Localization.LocalizableString;
 import poker.Utils;
 
-
-
 /**
  *
  * @author MDA 174321 :)

@@ -23,8 +23,8 @@ public class PokerMain {
         s.seed();
         //LoginView a = new LoginView(ViewEnum.V_ADMIN_LOGIN);
         LoginView p1 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
-        LoginView p2 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
-        LoginView p3 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
+        //LoginView p2 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
+        //LoginView p3 = new LoginView(ViewEnum.V_PLAYER_LOGIN);
         
         
 
