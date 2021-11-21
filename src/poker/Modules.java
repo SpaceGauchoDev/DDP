@@ -7,7 +7,7 @@ package poker;
 
 import poker.Game.GameModule;
 import poker.UI.Framework.Observable;
-import poker.User.UserModule;
+import poker.User.UserProfileModule;
 
 /**
  *
@@ -19,7 +19,7 @@ public class Modules extends Observable {
     
     // Unprotected instances, don't instance more of these please
     private GameModule theGameModule = new GameModule();
-    private UserModule theUserModule = new UserModule();
+    private UserProfileModule theUserModule = new UserProfileModule();
     
     private Modules (){
         
@@ -35,7 +35,7 @@ public class Modules extends Observable {
         return theGameModule;
     }
 
-    public UserModule getUserModule() {
+    public UserProfileModule getUserModule() {
         return theUserModule;
     }
 }

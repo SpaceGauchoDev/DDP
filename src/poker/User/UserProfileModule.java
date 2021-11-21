@@ -6,6 +6,7 @@
 package poker.User;
 
 import java.util.ArrayList;
+import poker.Game.Game;
 import poker.Modules;
 import poker.UI.Player.PlayerModel;
 import poker.UI.UserModel;
@@ -15,27 +16,19 @@ import poker.Utils;
  *
  * @author MDA 174321 :)
  */
-public class UserModule {
-    private ArrayList<User> myRegisteredUsers = new ArrayList();
+public class UserProfileModule {
+    private ArrayList<UserProfile> myRegisteredUsers = new ArrayList();
 
-    public UserModule() {
+    public UserProfileModule() {
         
     }
     
-    // TODO: repeated behaviour, do we need a generalization to handle lists?
-    // add<SomeObject>()
-    // <SomeObject>Exists()
-    // get<SomeObject>ById()
-    
-    // Other suspect objects:
-    // View.java
-    // Component.java 
-    public boolean userExists(User aUser){
+    public boolean userExists(UserProfile aUser){
         return myRegisteredUsers.contains(aUser);
     }
     
     public boolean registerPlayer (String aId, String aPass, String aFullName, int aFunds){
-        Player player = new Player(aId, aPass, aFullName, aFunds);
+        PlayerProfile player = new PlayerProfile(aId, aPass, aFullName, aFunds);
         if(player.isValid() && !userExists(player)){
             return myRegisteredUsers.add(player);
         }        
@@ -43,7 +36,7 @@ public class UserModule {
     }
     
     public boolean registerAdmin (String aId, String aPass, String aFullName){
-        Admin admin = new Admin(aId, aPass, aFullName);
+        AdminProfile admin = new AdminProfile(aId, aPass, aFullName);
         if(admin.isValid() && !userExists(admin)){
             return myRegisteredUsers.add(admin);
         }        
@@ -51,20 +44,20 @@ public class UserModule {
     }
     
     // NOTE: Inefficient search algorithm
-    public Player getPlayerById (String aId){
-        for(User u:myRegisteredUsers){
-            if(u.getId().equals(aId) && u.getUserEnum() == UserEnum.U_PLAYER ){
-                return (Player)u;
+    public PlayerProfile getPlayerById (String aId){
+        for(UserProfile u:myRegisteredUsers){
+            if(u.getId().equals(aId) && u.getUserEnum() == UserProfileEnum.U_PLAYER ){
+                return (PlayerProfile)u;
             }
         }
         return null;
     }
     
     // NOTE: Inefficient search algorithm
-    public Admin getAdminById (String aId){
-        for(User u:myRegisteredUsers){
-            if(u.getId().equals(aId) && u.getUserEnum() == UserEnum.U_ADMIN ){
-                return (Admin)u;
+    public AdminProfile getAdminById (String aId){
+        for(UserProfile u:myRegisteredUsers){
+            if(u.getId().equals(aId) && u.getUserEnum() == UserProfileEnum.U_ADMIN ){
+                return (AdminProfile)u;
             }
         }
         return null;
@@ -74,19 +67,19 @@ public class UserModule {
     public PlayerModel loginPlayer(String aUsername, String aPassword){
         
         // Is player registered?
-        Player player = getPlayerById(aUsername);
-        if(player!= null && player.getPassword().equals(aPassword)){
+        PlayerProfile playerProfile = getPlayerById(aUsername);
+        if(playerProfile!= null && playerProfile.getPassword().equals(aPassword)){
             Utils.logState("Registered player found.");
             int blindBetValue = Modules.getInstance().getGameModule().getBlindBetValue();
             
             // Can player pay the blind bet?
-            if(player.getFunds() >=  blindBetValue){
-                Utils.logState("Player id: "+ player.getId() +" just logged in.");
-                int gameId = Modules.getInstance().getGameModule().playerJoinAttempt(player);
-
-                if(gameId != -1 ){
-                    PlayerModel playerModel = new PlayerModel(player.getId(), player.getFullName(), player.getFunds(), gameId);
-                    return playerModel;
+            if(playerProfile.getFunds() >=  blindBetValue){
+                Utils.logState("Player id: "+ playerProfile.getId() +" just logged in.");
+                Game game = Modules.getInstance().getGameModule().playerJoinAttempt(playerProfile);
+                if(game != null ){
+                    return game.getLocalPlayerModel(aUsername);
+                    //PlayerModel playerModel = new PlayerModel(playerProfile.getId(), playerProfile.getFullName(), playerProfile.getFunds(), game.getId(), "", false);
+                    //return playerModel;
                 }
                 else{
                     Utils.logState("Player unable to join a game, how did we get here?");
@@ -107,7 +100,7 @@ public class UserModule {
     public UserModel loginAdmin(String aUsername, String aPassword){
         
         // Is admin registred
-        Admin admin = getAdminById(aUsername);
+        AdminProfile admin = getAdminById(aUsername);
         if(admin!= null && admin.getPassword().equals(aPassword)){
             Utils.logState("Admin id: "+ admin.getId() +" just logged in.");
             return new UserModel(admin.getId(), admin.getFullName());

@@ -8,6 +8,9 @@ package poker.Game;
 import java.util.ArrayList;
 import poker.Game.StateMachines.GameState_Lobby;
 import poker.Game.StateMachines.StateMachine;
+import poker.UI.Framework.Model;
+import poker.UI.Framework.ObservableEventsEnum;
+import poker.UI.Player.PlayerModel;
 import poker.Utils;
 
 /**
@@ -16,7 +19,11 @@ import poker.Utils;
  */
 public class Game extends StateMachine {
     int myId;
-    ArrayList<PlayerInGame> myPlayers = new ArrayList();
+    ArrayList<PlayerEntity> myPlayers = new ArrayList();
+
+    public ArrayList<PlayerEntity> getPlayers() {
+        return myPlayers;
+    }
     
     Pot myPot = new Pot();
     Configuration myConfiguration;
@@ -36,6 +43,27 @@ public class Game extends StateMachine {
         GameState_Lobby state = new GameState_Lobby(this);
         setState(state);
     }
+    
+    public ArrayList<PlayerModel> getPlayersModels(String aLocalPlayerId){
+        ArrayList<PlayerModel> playersModel = new ArrayList();
+        for (int i = 0; i <myPlayers.size(); i++){
+            boolean isLocal = myPlayers.get(i).myId.equals(aLocalPlayerId);
+            PlayerModel playerModel = (PlayerModel)myPlayers.get(i).toModel(isLocal);
+            playersModel.add(playerModel);
+        }
+        return playersModel;
+    }
+    
+    public PlayerModel getLocalPlayerModel(String aLocalPlayerId){
+        PlayerModel playerModel = null;
+        for (int i = 0; i <myPlayers.size(); i++){
+            boolean isLocal = myPlayers.get(i).myId.equals(aLocalPlayerId);
+            if(isLocal){
+                playerModel = (PlayerModel)myPlayers.get(i).toModel(isLocal);
+            }
+        }
+        return playerModel;
+    }
 
     public int getId() {
         return myId;
@@ -45,13 +73,13 @@ public class Game extends StateMachine {
         return myPlayers.size() ==  myConfiguration.getMaxPlayersPerGame();
     }
     
-    public boolean hasPlayer(PlayerInGame aPlayerInGame){
+    public boolean hasPlayer(PlayerEntity aPlayerInGame){
         return myPlayers.contains(aPlayerInGame);
     }
     
-    public ArrayList<PlayerInGame> getActivePlayers(){
-        ArrayList<PlayerInGame> players = new ArrayList();    
-        for(PlayerInGame p: myPlayers){
+    public ArrayList<PlayerEntity> getActivePlayers(){
+        ArrayList<PlayerEntity> players = new ArrayList();    
+        for(PlayerEntity p: myPlayers){
             if(p.getIsActive()){
                 players.add(p);
             }
@@ -63,9 +91,12 @@ public class Game extends StateMachine {
         myPot.increaseFunds(aFunds);
     }
     
-    public void addPlayer_Action(PlayerInGame aPlayerInGame){
+    public void addPlayer_Action(PlayerEntity aPlayerInGame){
         if(aPlayerInGame != null && aPlayerInGame.isValid() && !isFull()){
             myPlayers.add(aPlayerInGame);
+            aPlayerInGame.setGameId(myId);
+            aPlayerInGame.setState("En lobby");
+            notifyObservers(ObservableEventsEnum.O_PLAYER_JOINED_LOBBY);
         }
         
         // should we transition to next state?

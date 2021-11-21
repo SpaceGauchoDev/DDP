@@ -8,13 +8,13 @@ package poker.UI;
  *
  * @author MDA 174321 :)
  */
-public class TextInputFieldComponent extends javax.swing.JPanel {
+public class PasswordInputFieldComponent extends javax.swing.JPanel {
     private String myId;
     public String myLabel = "Label";
     public String myText = "Placeholder";
     public String myWarning = "";
     
-    public TextInputFieldComponent() {
+    public PasswordInputFieldComponent() {
         initComponents();
     }
     
@@ -23,7 +23,7 @@ public class TextInputFieldComponent extends javax.swing.JPanel {
         inputLabel_label.setText(aLabel);
         
         myText = aText;
-        input_textField.setText(aText);
+        jPasswordField1.setText(aText);
         
         myWarning = aWarning;
         warning_label.setText(aWarning);
@@ -32,7 +32,7 @@ public class TextInputFieldComponent extends javax.swing.JPanel {
     }
     
     public String getInput(){
-        return input_textField.getText();
+        return jPasswordField1.getText();
     }
     
     /**
@@ -45,8 +45,8 @@ public class TextInputFieldComponent extends javax.swing.JPanel {
     private void initComponents() {
 
         inputLabel_label = new javax.swing.JLabel();
-        input_textField = new javax.swing.JTextField();
         warning_label = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setMaximumSize(new java.awt.Dimension(320, 62));
@@ -55,17 +55,17 @@ public class TextInputFieldComponent extends javax.swing.JPanel {
 
         inputLabel_label.setText("Text field label");
 
-        input_textField.setText("Text field");
-        input_textField.setMaximumSize(new java.awt.Dimension(200, 20));
-        input_textField.setMinimumSize(new java.awt.Dimension(200, 20));
-        input_textField.setPreferredSize(new java.awt.Dimension(200, 20));
-        input_textField.addActionListener(new java.awt.event.ActionListener() {
+        warning_label.setText("Warning label");
+
+        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setMaximumSize(new java.awt.Dimension(200, 20));
+        jPasswordField1.setMinimumSize(new java.awt.Dimension(200, 20));
+        jPasswordField1.setPreferredSize(new java.awt.Dimension(200, 20));
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                input_textFieldActionPerformed(evt);
+                jPasswordField1ActionPerformed(evt);
             }
         });
-
-        warning_label.setText("Warning label");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,7 +77,7 @@ public class TextInputFieldComponent extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(inputLabel_label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addComponent(input_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(warning_label)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -89,21 +89,21 @@ public class TextInputFieldComponent extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputLabel_label)
-                    .addComponent(input_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(warning_label)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void input_textFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_textFieldActionPerformed
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_input_textFieldActionPerformed
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel inputLabel_label;
-    private javax.swing.JTextField input_textField;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel warning_label;
     // End of variables declaration//GEN-END:variables
 }

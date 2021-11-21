@@ -15,7 +15,7 @@ import poker.Game.StateMachines.StateMachine;
 public class Round extends StateMachine {
     Game myGame;
     int myId;
-    ArrayList<PlayerInGame> myRoundPlayers = new ArrayList();
+    ArrayList<PlayerEntity> myRoundPlayers = new ArrayList();
     Deck myDeck = new Deck();
     
     public Round(Game aGame, int aId) {

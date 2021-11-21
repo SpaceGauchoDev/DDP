@@ -9,7 +9,7 @@ package poker.User;
  *
  * @author MDA 174321 :)
  */
-public enum UserEnum {
+public enum UserProfileEnum {
     U_ADMIN(1, "Administrador"),
     U_PLAYER(2, "Jugador");
     
@@ -20,7 +20,7 @@ public enum UserEnum {
         return myName;
     }
     
-    private  UserEnum(int aUser, String aName){
+    private  UserProfileEnum(int aUser, String aName){
         myUser = aUser;
         myName = aName;
     }

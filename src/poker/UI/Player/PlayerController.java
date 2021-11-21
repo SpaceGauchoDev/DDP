@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package poker.UI.Player;
+import java.util.ArrayList;
 import poker.Game.Game;
 import poker.Modules;
 import poker.UI.Framework.Controller;
@@ -18,17 +19,17 @@ import poker.Utils;
  */
 public class PlayerController extends Controller implements Observer{
     PlayerModel myLocalPlayer;
+    ArrayList<PlayerModel> myPlayersInGame = new ArrayList();
     PlayerView myPlayerView;
     Game myGame;
     
-    
     int myCurrentMinBet = 0;    // TODO: get real values
     int myCurrentMaxBet = 20;   // TODO: get real values
-    
+   
     public PlayerController(View aView, PlayerModel aPlayer) {
         super(aView);
         myLocalPlayer = aPlayer;
-        setWindowTitle(myLocalPlayer.getFullName());
+        
         
         if (aView instanceof PlayerView){
             myPlayerView = (PlayerView)aView;
@@ -36,6 +37,20 @@ public class PlayerController extends Controller implements Observer{
         
         myGame = Modules.getInstance().getGameModule().getGameById(myLocalPlayer.myGameId);
         myGame.addObserver(this);
+        
+        setWindowTitle(myLocalPlayer.getFullName() + " - " + "En juego: " + myLocalPlayer.myGameId);
+        
+        myPlayersInGame = myGame.getPlayersModels(myLocalPlayer.getId());
+        myPlayerView.setPlayersInfo(myPlayersInGame);
+    }
+    
+    public void onViewClose(){
+        myGame.removeObserver(this);
+    }
+    
+    public void updatePlayerInfo(){
+        myPlayersInGame = myGame.getPlayersModels(myLocalPlayer.getId());
+        myPlayerView.setPlayersInfo(myPlayersInGame);
     }
     
     //Stage 1 and player wants to make a bet
@@ -98,7 +113,7 @@ public class PlayerController extends Controller implements Observer{
                 // do stuff
                 break;
             case O_PLAYER_JOINED_LOBBY:
-                // do stuff
+                updatePlayerInfo();
                 break;
             default:
         }

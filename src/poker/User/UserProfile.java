@@ -11,11 +11,11 @@ import java.util.Objects;
  *
  * @author MDA 174321 :)
  */
-public abstract class User {
+public abstract class UserProfile {
     String myId;
     String myPass;
     String myFullName;
-    UserEnum myUserEnum;
+    UserProfileEnum myUserEnum;
     
     public abstract boolean isValid();
     
@@ -27,7 +27,7 @@ public abstract class User {
         return myPass;
     }
     
-    public UserEnum getUserEnum(){
+    public UserProfileEnum getUserEnum(){
         return myUserEnum;
     }
     
@@ -38,11 +38,11 @@ public abstract class User {
     @Override
     public boolean equals(Object aObject)
     {
-        if (!(aObject instanceof User)){
+        if (!(aObject instanceof UserProfile)){
             return false;
         }
         else{
-            User user = (User)aObject;
+            UserProfile user = (UserProfile)aObject;
             return this.myId.equals(user.myId);
         }
     }

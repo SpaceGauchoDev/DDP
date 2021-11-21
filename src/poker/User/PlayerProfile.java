@@ -11,7 +11,7 @@ import poker.Utils;
  *
  * @author MDA 174321 :)
  */
-public class Player extends User {
+public class PlayerProfile extends UserProfile {
     int myFunds;
 
     public int getFunds() {
@@ -35,11 +35,11 @@ public class Player extends User {
         return true;
     }
 
-    public Player(String aId, String aPass, String aFullName, int aFunds) {
+    public PlayerProfile(String aId, String aPass, String aFullName, int aFunds) {
         myId = aId;
         myPass = aPass;
         myFullName = aFullName;
         myFunds = aFunds;
-        myUserEnum = UserEnum.U_PLAYER;
+        myUserEnum = UserProfileEnum.U_PLAYER;
     }
 }

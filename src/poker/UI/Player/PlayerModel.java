@@ -14,21 +14,26 @@ import poker.UI.UserModel;
  */
 public class PlayerModel extends UserModel{
     public int myFunds;
+    public boolean myIsActive = true;
+    public String myState = "";
+    public String myPattern = "";
+    public boolean myIsLocal = false;
+
+    public int getMyFunds() {
+        return myFunds;
+    }
+
+    public int getMyGameId() {
+        return myGameId;
+    }
     public int myGameId;
     
-    /*
-    public String myPattern; 
-    public ArrayList<CardModel> myCards;
-    public boolean myWonRound;
-    public boolean myHasPattern;
-    public String myPatternName;
-    public String myHighestCardName;
-    public boolean myIsLocalPlayer;
-    */
-    
-    public PlayerModel(String aId, String aFullName, int aFunds, int aGameId) {
+    public PlayerModel(String aId, String aFullName, int aFunds, int aGameId, String aPattern, boolean aIsLocal, String aState) {
         super(aId, aFullName);
         myFunds = aFunds;
         myGameId = aGameId;
+        myPattern = aPattern;
+        myIsLocal = aIsLocal;
+        myState = aState;
     }
 }

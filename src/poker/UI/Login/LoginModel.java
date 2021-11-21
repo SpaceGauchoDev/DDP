@@ -10,17 +10,11 @@ import poker.UI.Framework.Model;
  * @author MDA 174321 :)
  */
 public class LoginModel extends Model {
-    public String myUsername;
-    public String myUsernameWarning;
-    //TODO: Add username label to model attributes
-    public String myPassword;
-    public String myPasswordWarning;
-    //TODO: Add password label to model attributes
+    public String myId;
+    public String myFullName;
 
-    public LoginModel(String aUsername, String aUsernameWarning, String aPassword, String aPasswordWarning) {
-        myUsername = aUsername;
-        myUsernameWarning = aUsernameWarning;
-        myPassword = aPassword;
-        myPasswordWarning = aPasswordWarning;
+    public LoginModel(String aId, String aFullName) {
+        myId = aId;
+        myFullName = aFullName;
     }
 }

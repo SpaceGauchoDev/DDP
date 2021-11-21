@@ -19,12 +19,11 @@ public class PokerMain {
         Modules m = Modules.getInstance(); // instanciate sub systems
         SeedData s = new SeedData();
         s.seed();
-        //LoginView a = new LoginView(false);
+        
+        
         LoginView p1 = new LoginView(true);
-        //LoginView p2 = new LoginView(true);
-        //LoginView p3 = new LoginView(true);
-       
-
+        LoginView p2 = new LoginView(true);
+        LoginView p3 = new LoginView(true);
     }
     
 }

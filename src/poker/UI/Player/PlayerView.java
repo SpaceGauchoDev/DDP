@@ -6,6 +6,7 @@
 package poker.UI.Player;
 import java.util.ArrayList;
 import poker.UI.Framework.View;
+import poker.Utils;
 
 /**
  *
@@ -17,24 +18,29 @@ public class PlayerView extends View {
     public PlayerView(PlayerModel aPlayer) {
         super();
         initComponents();
+        myPlayerRows.add(myPlayerRow_4);
+        myPlayerRow_4.showInfo(false);
+        myPlayerRows.add(myPlayerRow_3);
+        myPlayerRow_3.showInfo(false);
+        myPlayerRows.add(myPlayerRow_2);
+        myPlayerRow_2.showInfo(false);
+        myPlayerRows.add(myPlayerRow_1);
+        myPlayerRow_1.showInfo(false);
+        myPlayerRows.add(myPlayerRow_0);
+        myPlayerRow_0.showInfo(false);
+        
 
         PlayerController controller = new PlayerController(this, aPlayer);
         setController(controller);
         
         playerInputDoBetFieldComp1.set(controller);
-        //playerInputDoBetFieldComp1.setInactive();
+        playerInputDoBetFieldComp1.setInactive();
         
         myBetChoiceComponent.set("Pagar apuesta?", "Si", "No", true, controller);
-        //myBetChoiceComponent.setInactive();
+        myBetChoiceComponent.setInactive();
         
         myRoundChoiceComponent.set("Otra ronda?", "Si", "No", false, controller);
-        //myRoundChoiceComponent.setInactive();
-        
-        myPlayerRows.add(myPlayerRow_4);
-        myPlayerRows.add(myPlayerRow_3);
-        myPlayerRows.add(myPlayerRow_2);
-        myPlayerRows.add(myPlayerRow_1);
-        myPlayerRows.add(myPlayerRow_0);
+        myRoundChoiceComponent.setInactive();
     }
     
     public void setInvalidBetRangeWarning(){
@@ -47,6 +53,20 @@ public class PlayerView extends View {
     
     public void clearWarning(){
         playerInputDoBetFieldComp1.clearWarning();
+    }
+    
+    private void onClosing(){
+        PlayerController controller = (PlayerController)getController();
+        controller.onViewClose();
+    }
+    
+    public void setPlayersInfo(ArrayList<PlayerModel> aPlayers){
+        if(aPlayers!= null && aPlayers.size() <= myPlayerRows.size() ){
+            for(int i = 0; i< aPlayers.size(); i++){
+                myPlayerRows.get(i).showInfo(true);
+                myPlayerRows.get(i).setInfo(aPlayers.get(i));
+            }
+        }
     }
     
     /**
@@ -72,6 +92,11 @@ public class PlayerView extends View {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(150, 150, 150));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         myPotInfoField.setEditable(false);
         myPotInfoField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -106,12 +131,11 @@ public class PlayerView extends View {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(myPotInfoField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(playerInputDoBetFieldComp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(playerInputDoBetFieldComp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(myBetChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(myRoundChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addComponent(myRoundChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(myPlayerRow_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -119,7 +143,7 @@ public class PlayerView extends View {
                             .addComponent(myPlayerRow_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(myPlayerRow_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(myPlayerRow_0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 1, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -140,10 +164,10 @@ public class PlayerView extends View {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(myPlayerRow_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(playerInputDoBetFieldComp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myBetChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myRoundChoiceComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(playerInputDoBetFieldComp1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(myBetChoiceComponent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(myRoundChoiceComponent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -151,8 +175,12 @@ public class PlayerView extends View {
     }// </editor-fold>//GEN-END:initComponents
 
     private void myPotInfoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myPotInfoFieldActionPerformed
-        // TODO add your handling code here:
+        onClosing();
     }//GEN-LAST:event_myPotInfoFieldActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        
+    }//GEN-LAST:event_formWindowClosed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private poker.UI.Player.BinaryChoicePromptComponent myBetChoiceComponent;

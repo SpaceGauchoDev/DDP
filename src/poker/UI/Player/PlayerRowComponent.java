@@ -5,6 +5,7 @@
  */
 package poker.UI.Player;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 /**
@@ -12,6 +13,9 @@ import java.util.ArrayList;
  * @author MDA 174321 :)
  */
 public class PlayerRowComponent extends javax.swing.JPanel {
+    static Color joinedLocalBgColor = new Color(102, 153, 204);
+    static Color joinedRemoteBgColor = new Color(153, 102, 204);
+    static Color pendingBgColor = new Color(150, 150, 150);
     
     /**
      * Creates new form PlayerRowComponent
@@ -28,10 +32,19 @@ public class PlayerRowComponent extends javax.swing.JPanel {
         myHandComponent.setCardsReverse();
     }
     
-    public void setInfo(PlayerInfoModel aPlayerInfoModel){
-        myPlayerInfoComponent.set(aPlayerInfoModel);
+    public void showInfo(boolean aShowInfo){
+        myPlayerInfoComponent.showInfo(aShowInfo);
     }
-
+    
+    public void setInfo(PlayerModel aPlayerModel){
+        myPlayerInfoComponent.set(aPlayerModel);
+        if(aPlayerModel.myIsLocal){
+            setBackground(joinedLocalBgColor);
+        }else{
+            setBackground(joinedRemoteBgColor);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

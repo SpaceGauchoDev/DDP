@@ -11,7 +11,7 @@ import poker.Utils;
  *
  * @author MDA 174321 :)
  */
-public class Admin extends User {
+public class AdminProfile extends UserProfile {
     
     @Override
     public boolean isValid(){
@@ -27,10 +27,10 @@ public class Admin extends User {
         return true;
     }
     
-    public Admin(String aId, String aPass, String aFullName) {
+    public AdminProfile(String aId, String aPass, String aFullName) {
         myId = aId;
         myPass = aPass;
         myFullName = aFullName;
-        myUserEnum = UserEnum.U_ADMIN;
+        myUserEnum = UserProfileEnum.U_ADMIN;
     }
 }

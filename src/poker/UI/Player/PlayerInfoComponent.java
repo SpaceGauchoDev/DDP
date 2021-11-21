@@ -5,40 +5,67 @@
  */
 package poker.UI.Player;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
 /**
  *
  * @author MDA 174321 :)
  */
 public class PlayerInfoComponent extends javax.swing.JPanel {
-
+    static Color transparentWhite = new Color(255, 255, 255, 0);
+    static Color opaqueWhite = new Color(255, 255, 255, 255);
+    ArrayList<javax.swing.JLabel> myLabels = new ArrayList();
+    
     public PlayerInfoComponent() {
         initComponents();
+        
+        myLabels.add(myFundsLabel);
+        myLabels.add(myFundsTextLabel);
+        myLabels.add(myNameLabel);
+        myLabels.add(myNameTextLabel);
+        myLabels.add(myPatternLabel);
+        myLabels.add(myPatternTextLabel);
+        myLabels.add(myStateLabel);
+        myLabels.add(myStateTextLabel);
     }
     
-    public void set(PlayerInfoModel aPlayerInfo){
-        if(aPlayerInfo.myIsLocal){
-            setDataLocal(aPlayerInfo.myName, aPlayerInfo.myState, aPlayerInfo.myFunds, aPlayerInfo.myPattern);
+    public void set(PlayerModel aPlayerModel){
+        if(aPlayerModel.myIsLocal){
+            String funds = Integer.toString(aPlayerModel.myFunds);
+            setDataLocal(aPlayerModel.getFullName(), aPlayerModel.myState, funds, aPlayerModel.myPattern);
         }else{
-            setDataRemote(aPlayerInfo.myName, aPlayerInfo.myState);
             hideFundsAndPattern();
+            setDataRemote(aPlayerModel.getFullName(), aPlayerModel.myState);
         }
     }
     
     private void setDataLocal(String aName, String aState, String aFunds, String aPattern){
-        myNameField.setText(aName);
-        myStateField.setText(aState);
-        myFundsField.setText(aFunds);
-        myPatternField.setText(aPattern);        
+        myNameTextLabel.setText(aName);
+        myStateTextLabel.setText(aState);
+        myFundsTextLabel.setText(aFunds);
+        myPatternTextLabel.setText(aPattern);        
     }
     
     private void setDataRemote(String aName, String aState){
-        myNameField.setText(aName);
-        myStateField.setText(aState);
+        myNameTextLabel.setText(aName);
+        myStateTextLabel.setText(aState);
+    }
+    
+    public void showInfo(boolean aShow){
+        for (javax.swing.JLabel label: myLabels){
+            if(aShow)
+                label.setForeground(opaqueWhite);
+            else
+                label.setForeground(transparentWhite);
+        }
     }
     
     private void hideFundsAndPattern(){
         myFundsLabel.setVisible(false);
+        myFundsTextLabel.setVisible(false);
         myPatternLabel.setVisible(false);
+        myPatternTextLabel.setVisible(false);        
     }
     
     /**
@@ -54,10 +81,10 @@ public class PlayerInfoComponent extends javax.swing.JPanel {
         myStateLabel = new javax.swing.JLabel();
         myFundsLabel = new javax.swing.JLabel();
         myPatternLabel = new javax.swing.JLabel();
-        myNameField = new javax.swing.JTextField();
-        myStateField = new javax.swing.JTextField();
-        myFundsField = new javax.swing.JTextField();
-        myPatternField = new javax.swing.JTextField();
+        myNameTextLabel = new javax.swing.JLabel();
+        myStateTextLabel = new javax.swing.JLabel();
+        myFundsTextLabel = new javax.swing.JLabel();
+        myPatternTextLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(100, 100, 100));
 
@@ -75,35 +102,33 @@ public class PlayerInfoComponent extends javax.swing.JPanel {
         myPatternLabel.setForeground(new java.awt.Color(255, 255, 255));
         myPatternLabel.setText("Figura:");
 
-        myNameField.setEditable(false);
-        myNameField.setText("Un nombre");
-        myNameField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        myNameField.setEnabled(false);
-        myNameField.setFocusable(false);
+        myNameTextLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        myNameTextLabel.setForeground(new java.awt.Color(255, 255, 255));
+        myNameTextLabel.setText("Un Nombre");
+        myNameTextLabel.setMaximumSize(new java.awt.Dimension(103, 14));
+        myNameTextLabel.setMinimumSize(new java.awt.Dimension(103, 14));
+        myNameTextLabel.setPreferredSize(new java.awt.Dimension(103, 14));
 
-        myStateField.setEditable(false);
-        myStateField.setText("Un estado");
-        myStateField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        myStateField.setEnabled(false);
-        myStateField.setFocusable(false);
-        myStateField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myStateFieldActionPerformed(evt);
-            }
-        });
+        myStateTextLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        myStateTextLabel.setForeground(new java.awt.Color(255, 255, 255));
+        myStateTextLabel.setText("Un Estado");
+        myStateTextLabel.setMaximumSize(new java.awt.Dimension(103, 14));
+        myStateTextLabel.setMinimumSize(new java.awt.Dimension(103, 14));
+        myStateTextLabel.setPreferredSize(new java.awt.Dimension(103, 14));
 
-        myFundsField.setEditable(false);
-        myFundsField.setText("10");
-        myFundsField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        myFundsField.setEnabled(false);
-        myFundsField.setFocusable(false);
+        myFundsTextLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        myFundsTextLabel.setForeground(new java.awt.Color(255, 255, 255));
+        myFundsTextLabel.setText("Un Saldo");
+        myFundsTextLabel.setMaximumSize(new java.awt.Dimension(103, 14));
+        myFundsTextLabel.setMinimumSize(new java.awt.Dimension(103, 14));
+        myFundsTextLabel.setPreferredSize(new java.awt.Dimension(103, 14));
 
-        myPatternField.setEditable(false);
-        myPatternField.setText("Una Figura");
-        myPatternField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        myPatternField.setDoubleBuffered(true);
-        myPatternField.setEnabled(false);
-        myPatternField.setFocusable(false);
+        myPatternTextLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        myPatternTextLabel.setForeground(new java.awt.Color(255, 255, 255));
+        myPatternTextLabel.setText("Una Figura");
+        myPatternTextLabel.setMaximumSize(new java.awt.Dimension(103, 14));
+        myPatternTextLabel.setMinimumSize(new java.awt.Dimension(103, 14));
+        myPatternTextLabel.setPreferredSize(new java.awt.Dimension(103, 14));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -115,19 +140,17 @@ public class PlayerInfoComponent extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(myNameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(myNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(myStateLabel)
-                        .addGap(8, 8, 8)
-                        .addComponent(myStateField))
+                        .addComponent(myNameTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(myStateLabel)
                             .addComponent(myFundsLabel)
                             .addComponent(myPatternLabel))
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(myPatternField)
-                            .addComponent(myFundsField))))
+                            .addComponent(myPatternTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(myFundsTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(myStateTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,36 +159,32 @@ public class PlayerInfoComponent extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(myNameLabel)
-                    .addComponent(myNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(myNameTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(myStateLabel)
-                    .addComponent(myStateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(myStateTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(myFundsLabel)
-                    .addComponent(myFundsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(myFundsTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(myPatternLabel)
-                    .addComponent(myPatternField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(myPatternTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void myStateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myStateFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_myStateFieldActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField myFundsField;
     private javax.swing.JLabel myFundsLabel;
-    private javax.swing.JTextField myNameField;
+    private javax.swing.JLabel myFundsTextLabel;
     private javax.swing.JLabel myNameLabel;
-    private javax.swing.JTextField myPatternField;
+    private javax.swing.JLabel myNameTextLabel;
     private javax.swing.JLabel myPatternLabel;
-    private javax.swing.JTextField myStateField;
+    private javax.swing.JLabel myPatternTextLabel;
     private javax.swing.JLabel myStateLabel;
+    private javax.swing.JLabel myStateTextLabel;
     // End of variables declaration//GEN-END:variables
 }

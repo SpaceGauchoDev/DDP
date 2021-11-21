@@ -5,7 +5,7 @@
  */
 package poker;
 
-import poker.User.UserModule;
+import poker.User.UserProfileModule;
 
 /**
  *
@@ -15,7 +15,7 @@ public class SeedData {
     public void seed(){
         Modules m = Modules.getInstance();
         // Users
-        UserModule u = m.getUserModule();
+        UserProfileModule u = m.getUserModule();
         
         // Users Admins
         u.registerAdmin("a", "a", "admin full name");

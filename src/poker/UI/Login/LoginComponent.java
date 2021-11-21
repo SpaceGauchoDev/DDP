@@ -4,25 +4,28 @@
  * and open the template in the editor.
  */
 package poker.UI.Login;
-import poker.UI.TextInputFieldModel;
 
 /**
  *
  * @author MDA 174321 :)
  */
-public class UsernamePassComponent extends javax.swing.JPanel {
-    public UsernamePassComponent() {
+public class LoginComponent extends javax.swing.JPanel {
+    LoginController myController;
+    
+    public LoginComponent() {
         initComponents();
         username_textInputField.set("Username:", "", "");
         password_textInputField.set("Password:", "", "");
     }
     
-    public LoginModel getModelData(){
-        TextInputFieldModel usernameInput = username_textInputField.getModelData();
-        TextInputFieldModel passwordInput = password_textInputField.getModelData();
-        return new LoginModel(usernameInput.myInputFieldText,"", passwordInput.myInputFieldText, ""); 
+    public void setController(LoginController aController){
+        myController = aController;
     }
-
+    
+    private void loginAttempt(){
+        myController.loginAttempt(username_textInputField.getInput() , password_textInputField.getInput());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +37,18 @@ public class UsernamePassComponent extends javax.swing.JPanel {
 
         username_textInputField = new poker.UI.TextInputFieldComponent();
         password_textInputField = new poker.UI.TextInputFieldComponent();
+        login_btn = new javax.swing.JButton();
+
+        setMaximumSize(new java.awt.Dimension(350, 200));
+        setMinimumSize(new java.awt.Dimension(350, 200));
+        setPreferredSize(new java.awt.Dimension(320, 190));
+
+        login_btn.setText("Login");
+        login_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -43,7 +58,8 @@ public class UsernamePassComponent extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(username_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(password_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(password_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login_btn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -53,11 +69,18 @@ public class UsernamePassComponent extends javax.swing.JPanel {
                 .addComponent(username_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(password_textInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(login_btn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
+        loginAttempt();
+    }//GEN-LAST:event_login_btnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton login_btn;
     private poker.UI.TextInputFieldComponent password_textInputField;
     private poker.UI.TextInputFieldComponent username_textInputField;
     // End of variables declaration//GEN-END:variables

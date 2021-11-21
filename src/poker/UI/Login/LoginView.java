@@ -19,12 +19,14 @@ public class LoginView extends View {
         
         LoginController controller = new LoginController(this, aIsPlayer);
         setController(controller); 
+
+        textInputFieldComponent2.set("Usuario: ", "", "");
+        passwordInputFieldComponent1.set("Contraseña: ", "", "");
     }
 
-    private void loginAttempt(){
-        LoginModel loginModel = usernamePassComponent.getModelData();
+    public void loginAttempt(){
         LoginController controller = (LoginController)getController();
-        controller.loginAttempt(loginModel);
+        controller.loginAttempt(textInputFieldComponent2.getInput(), passwordInputFieldComponent1.getInput());
     }
 
     /**
@@ -37,10 +39,14 @@ public class LoginView extends View {
     private void initComponents() {
 
         login_btn = new javax.swing.JButton();
-        usernamePassComponent = new poker.UI.Login.UsernamePassComponent();
+        passwordInputFieldComponent1 = new poker.UI.PasswordInputFieldComponent();
+        textInputFieldComponent2 = new poker.UI.TextInputFieldComponent();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
+        setMaximumSize(new java.awt.Dimension(500, 500));
+        setMinimumSize(new java.awt.Dimension(500, 500));
+        setPreferredSize(new java.awt.Dimension(500, 500));
         setResizable(false);
 
         login_btn.setText("Login");
@@ -55,19 +61,21 @@ public class LoginView extends View {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(usernamePassComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(login_btn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(login_btn)
+                    .addComponent(passwordInputFieldComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textInputFieldComponent2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(usernamePassComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textInputFieldComponent2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordInputFieldComponent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addComponent(login_btn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -81,6 +89,7 @@ public class LoginView extends View {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton login_btn;
-    private poker.UI.Login.UsernamePassComponent usernamePassComponent;
+    private poker.UI.PasswordInputFieldComponent passwordInputFieldComponent1;
+    private poker.UI.TextInputFieldComponent textInputFieldComponent2;
     // End of variables declaration//GEN-END:variables
 }

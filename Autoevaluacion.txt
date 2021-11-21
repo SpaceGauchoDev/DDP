@@ -1,0 +1,11 @@
+La gran mayoría de los casos de uso 
+no han sido implementados desde un punto funcional.
+No me da el tiempo ahora para especificar mas.
+
+Ver carpeta docs
+
+
+
+
+
+

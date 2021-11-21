@@ -7,7 +7,9 @@ package poker.Game;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import poker.User.Player;
+import poker.Modules;
+import poker.UI.Player.PlayerModel;
+import poker.User.PlayerProfile;
 import poker.Utils;
 
 /**
@@ -16,7 +18,7 @@ import poker.Utils;
  */
 public class GameModule {
     // 6 players per game, 10 funds per blind bet and 5 cards per hand
-    Configuration myConfiguration = new Configuration(2,2,10,5);
+    Configuration myConfiguration = new Configuration(2,6,10,5);
     ArrayList<Game> myGames = new ArrayList();
     ArrayList<Game> myNonFullGames = new ArrayList();
     int myLastGameId = 0;
@@ -60,7 +62,7 @@ public class GameModule {
     }
 
     // There should be NO case where this returns null
-    private Game getFirstNonFullGameWithoutPlayer(PlayerInGame aplayerInGame){
+    private Game getFirstNonFullGameWithoutPlayer(PlayerEntity aplayerInGame){
         if(myGames.isEmpty() ){
             Utils.logState("No games found.");
             return createNewGame();
@@ -81,24 +83,24 @@ public class GameModule {
     }
     
     //TODO: Handle by exeption candidate
-    public int playerJoinAttempt(Player aPlayer){
+    public Game playerJoinAttempt(PlayerProfile aPlayer){
         if(aPlayer != null && aPlayer.isValid()){
             if(aPlayer.getFunds() >= myConfiguration.getBlindBetValue()){
                 // player exists in user structure and they have enough funds to join a game
-                PlayerInGame playerInGame = new PlayerInGame(aPlayer.getId(), aPlayer.getFunds());
-                Game game = getFirstNonFullGameWithoutPlayer(playerInGame);
+                PlayerEntity player = new PlayerEntity(aPlayer.getId(), aPlayer.getFunds(), aPlayer.getFullName());
+                Game game = getFirstNonFullGameWithoutPlayer(player);
                 Utils.logState("Player id: "+ aPlayer.getId() + " joining game id: " + game.getId() + ".");
-                game.addPlayer_Action(playerInGame);
+                game.addPlayer_Action(player);
                 updateNonFullGamesList();
-                return game.myId;
+                return game;
             }else{
                 Utils.logState("Not enough funds for blind bet.");
-                return -1;
+                return null;
             }
         }
         else{
             Utils.logState("Invalid Player, how did we get here?");                    
-            return -1;
+            return null;
         }
     }
     
@@ -114,5 +116,8 @@ public class GameModule {
         
         return null;
     }
+    
+    
+
 
 }
